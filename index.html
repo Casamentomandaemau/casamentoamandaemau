@@ -86,17 +86,49 @@
     <p>Recanto Santo Antônio - Pomares do Quilombo- Rua dos Pequis- Jardim Marchissolo,  Sumaré - SP, Brasil</p> 
   </section>
 
-  <section id="Presentes" class="tab">
-    <h2>Lista de Presentes</h2>
-    <p>Se preferir, envie um presente via Pix:</p>
-    <p><strong>Chave Pix:</strong> 19981870068<br><strong>Nome:</strong> Amanda Evangelista Leite</p>
-    <p>Ou escolha um item da lista:</p>
-    <ul>
-      <li><a href="#">Jogo de jantar</a></li>
-      <li><a href="#">Faqueiro</a></li>
-      <li><a href="#">Conjunto de toalhas</a></li>
+<div id="presentes" class="tab-content hidden">
+  <h2>Presentes</h2>
+
+  <!-- Cotas via Pix -->
+  <section class="gift-section">
+    <h3>Cotas para Presentear com Pix</h3>
+    <p>Escolha uma das cotas e envie o valor via Pix:</p>
+    <ul class="gift-list">
+      <li>
+        <strong>Cota Lua de Mel – R$ 100</strong><br>
+        <button onclick="openForm('Lua de Mel - R$100')">Quero Presentear</button>
+      </li>
+      <li>
+        <strong>Cota Jantar Romântico – R$ 50</strong><br>
+        <button onclick="openForm('Jantar Romântico - R$50')">Quero Presentear</button>
+      </li>
+      <li>
+        <strong>Cota Spa do Casal – R$ 150</strong><br>
+        <button onclick="openForm('Spa do Casal - R$150')">Quero Presentear</button>
+      </li>
+    </ul>
+    <p><strong>Chave Pix:</strong> 19981870068<br>
+    <strong>Nome:</strong> Amanda Evangelista Leite</p>
+  </section>
+
+  <!-- Itens físicos -->
+  <section class="gift-section">
+    <h3>Lista de Itens</h3>
+    <p>Você também pode escolher um presente físico:</p>
+    <ul class="gift-list">
+      <li>
+        <strong>Jogo de Toalhas – R$ 120</strong> – 
+        <a href="https://www.exemplo.com/toalhas" target="_blank">Ver item</a><br>
+        <button onclick="openForm('Jogo de Toalhas - R$120')">Quero Presentear</button>
+      </li>
+      <li>
+        <strong>Conjunto de Taças – R$ 90</strong> – 
+        <a href="https://www.exemplo.com/tacas" target="_blank">Ver item</a><br>
+        <button onclick="openForm('Conjunto de Taças - R$90')">Quero Presentear</button>
+      </li>
     </ul>
   </section>
+</div>
 
   <section id="rsvp" class="tab">
     <h2>Confirme sua presença</h2>
