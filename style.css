@@ -1,0 +1,54 @@
+/* Paleta de cores */
+:root {
+  --terracota: #D96C49;
+  --verde: #5C8D67;
+  --palha: #F5EBD6;
+  --branco: #FFFFFF;
+  --bege: #EBDCCB;
+  --fonte-principal: 'Playfair Display', serif;
+  --fonte-secundaria: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-secundaria);
+  background-color: var(--palha);
+  color: #333;
+}
+
+header {
+  background-color: var(--terracota);
+  color: var(--branco);
+  padding: 20px;
+  text-align: center;
+  font-family: var(--fonte-principal);
+  font-size: 2em;
+}
+
+section {
+  padding: 40px 20px;
+  background-color: var(--bege);
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-family: var(--fonte-principal);
+  color: var(--verde);
+  font-size: 1.8em;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+footer {
+  background-color: var(--terracota);
+  color: var(--branco);
+  text-align: center;
+  padding: 20px;
+  font-family: var(--fonte-secundaria);
+  margin-top: 40px;
+}
