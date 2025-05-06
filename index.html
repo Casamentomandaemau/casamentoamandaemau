@@ -1,43 +1,127 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Casamento Amanda e Maurício</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Casamento Amanda e Mauricio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fffaf0;
+      margin: 0;
+      padding: 0;
+    }
 
-  <!-- Fontes charmosas do Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+    header {
+      background-color: #a0522d;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #f5f5dc;
+      border-bottom: 2px solid #ccc;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      font-size: 1rem;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background-color: #8fbc8f;
+      color: white;
+    }
+
+    .tab {
+      display: none;
+      padding: 2rem;
+    }
+
+    .tab.active {
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #e6d8ad;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-
-  <header class="hero">
-    <h1 class="title">Amanda & Maurício</h1>
-    <p class="subtitle">13 de Junho de 2025</p>
+  <header>
+    <h1>Casamento Amanda & Mauricio</h1>
+    <p>13 de junho de 2025</p>
   </header>
 
-  <section class="section">
-    <h2>O Grande Dia</h2>
-    <p>Santo Antônio como guia e o amor como combustível, enfim pousamos neste momento tão esperado. Com nossa co-pilota mais especial, nossa filha, ao nosso lado, celebramos o que sempre foi destino: dizer 'sim'. Sejam bem-vindos ao nosso grande dia!"<strong>13 de junho de 2025</strong>, às <strong>19:45h</strong>,na <strong> Comunidade São Pedro e São Paulo - Rua Benedito Barbosa de Oliveira - Jardim Bom Retiro (Nova Veneza), Sumaré - SP, Brasil</strong>, em Valinhos - SP.</p>
+  <nav>
+    <button class="tablink active" onclick="openTab('inicio')">Início</button>
+    <button class="tablink" onclick="openTab('local')">Local</button>
+    <button class="tablink" onclick="openTab('presentes')">Presentes</button>
+    <button class="tablink" onclick="openTab('rsvp')">RSVP</button>
+  </nav>
+
+  <section id="inicio" class="tab active">
+    <h2>Sejam bem-vindos ao nosso grande dia!</h2>
+    <p>Santo Antônio como guia e o amor como combustível, enfim pousamos neste momento tão esperado. Com nossa co-pilota mais especial, nossa filha, ao nosso lado, celebramos o que sempre foi destino: dizer 'sim'.</p>
   </section>
 
-  <section class="section">
-    <h2>Presentes</h2>
-    <p>Muito obrigado por estarem ao nosso lado nesse momento tão especial! Cada presente escolhido com carinho – seja em forma de cota ou item físico– representa muito mais do que um gesto material. É uma demonstração de amor, presença e apoio que levaremos para sempre em nossos corações. Estamos imensamente gratos por fazerem parte da nossa história. Com todo o nosso carinho, Amanda & Mauricio.:</p>
-    <p><strong>Chave Pix:</strong> 19981870068<br/>
-    <strong>Nome:</strong> Amanda Evangelista Leite</p>
-    <p>Ou veja nossa <a href="#" target="_blank">lista de presentes</a>.</p>
+  <section id="local" class="tab">
+    <h2>Local da Cerimônia</h2>
+    <p>Comunidade São Pedro e São Paulo - Rua Benedito Barbosa de Oliveira - Jardim Bom Retiro (Nova Veneza), Sumaré - SP, Brasil</p>
+    <p>Início às 19:45.</p>
   </section>
 
-  <section class="section">
+    <section id="local" class="tab">
+    <h2>Local da Recepção</h2>
+    <p>Recanto Santo Antônio - Pomares do Quilombo- Rua dos Pequis- Jardim Marchissolo,  Sumaré - SP, Brasil</p>
+  </section>
+  
+  <section id="presentes" class="tab">
+    <h2>Lista de Presentes</h2>
+    <p>Se preferir, envie um presente via Pix:</p>
+    <p><strong>Chave Pix:</strong> 19981870068<br><strong>Nome:</strong> Amanda Evangelista Leite</p>
+    <p>Ou escolha um item da lista:</p>
+    <ul>
+      <li><a href="#">Jogo de jantar</a></li>
+      <li><a href="#">Faqueiro</a></li>
+      <li><a href="#">Conjunto de toalhas</a></li>
+    </ul>
+  </section>
+
+  <section id="rsvp" class="tab">
     <h2>Confirme sua presença</h2>
-    <p>Preencha o formulário abaixo para confirmar sua presença:</p>
-    <a class="rsvp-button" href="#" target="_blank">Confirmar presença</a>
+    <p><a href="#">Clique aqui para confirmar</a></p>
   </section>
 
-  <footer class="footer">
-    <p>Com carinho, Amanda & Maurício ❤️</p>
+  <footer>
+    <p>Com carinho, Amanda & Mauricio</p>
   </footer>
 
+  <script>
+    function openTab(tabId) {
+      const tabs = document.querySelectorAll('.tab');
+      const buttons = document.querySelectorAll('.tablink');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
 </body>
+</html>
 </html>
