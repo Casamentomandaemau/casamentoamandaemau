@@ -86,48 +86,45 @@
     <p>Recanto Santo Antônio - Pomares do Quilombo- Rua dos Pequis- Jardim Marchissolo,  Sumaré - SP, Brasil</p> 
   </section>
 
+<<!-- Aba de Presentes -->
 <div id="presentes" class="tab-content hidden">
-  <h2>Presentes</h2>
+  <h2 class="text-2xl font-bold mb-4">Presentes</h2>
 
-  <!-- Cotas via Pix -->
-  <section class="gift-section">
-    <h3>Cotas para Presentear com Pix</h3>
-    <p>Escolha uma das cotas e envie o valor via Pix:</p>
-    <ul class="gift-list">
+  <!-- Cotas por Pix -->
+  <div class="mb-6">
+    <h3 class="text-xl font-semibold mb-2">Cotas via Pix</h3>
+    <p class="mb-4">Escolha uma das cotas abaixo e envie o valor via Pix:</p>
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <button onclick="marcarComoEnviado(this)" class="bg-terracota hover:bg-opacity-90 text-white font-semibold py-2 px-4 rounded">R$50</button>
+      <button onclick="marcarComoEnviado(this)" class="bg-terracota hover:bg-opacity-90 text-white font-semibold py-2 px-4 rounded">R$100</button>
+      <button onclick="marcarComoEnviado(this)" class="bg-terracota hover:bg-opacity-90 text-white font-semibold py-2 px-4 rounded">R$150</button>
+    </div>
+
+    <div class="mt-4 bg-palha p-4 rounded">
+      <p><strong>Chave Pix:</strong> 19981870068</p>
+      <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
+    </div>
+  </div>
+
+  <!-- Lista de Presentes Físicos -->
+  <div>
+    <h3 class="text-xl font-semibold mb-2">Lista de Presentes</h3>
+    <ul class="space-y-2">
       <li>
-        <strong>Cota Lua de Mel – R$ 100</strong><br>
-        <button onclick="openForm('Lua de Mel - R$100')">Quero Presentear</button>
+        <button onclick="marcarComoEnviado(this)" class="bg-verde text-white py-2 px-4 rounded w-full text-left">
+          <span>Jogo de Cama</span>
+          <a href="https://www.exemplo.com/jogo-de-cama" target="_blank" class="underline ml-2 text-sm">ver item</a>
+        </button>
       </li>
       <li>
-        <strong>Cota Jantar Romântico – R$ 50</strong><br>
-        <button onclick="openForm('Jantar Romântico - R$50')">Quero Presentear</button>
-      </li>
-      <li>
-        <strong>Cota Spa do Casal – R$ 150</strong><br>
-        <button onclick="openForm('Spa do Casal - R$150')">Quero Presentear</button>
+        <button onclick="marcarComoEnviado(this)" class="bg-verde text-white py-2 px-4 rounded w-full text-left">
+          <span>Conjunto de Toalhas</span>
+          <a href="https://www.exemplo.com/toalhas" target="_blank" class="underline ml-2 text-sm">ver item</a>
+        </button>
       </li>
     </ul>
-    <p><strong>Chave Pix:</strong> 19981870068<br>
-    <strong>Nome:</strong> Amanda Evangelista Leite</p>
-  </section>
-
-  <!-- Itens físicos -->
-  <section class="gift-section">
-    <h3>Lista de Itens</h3>
-    <p>Você também pode escolher um presente físico:</p>
-    <ul class="gift-list">
-      <li>
-        <strong>Jogo de Toalhas – R$ 120</strong> – 
-        <a href="https://www.exemplo.com/toalhas" target="_blank">Ver item</a><br>
-        <button onclick="openForm('Jogo de Toalhas - R$120')">Quero Presentear</button>
-      </li>
-      <li>
-        <strong>Conjunto de Taças – R$ 90</strong> – 
-        <a href="https://www.exemplo.com/tacas" target="_blank">Ver item</a><br>
-        <button onclick="openForm('Conjunto de Taças - R$90')">Quero Presentear</button>
-      </li>
-    </ul>
-  </section>
+  </div>
 </div>
 
   <section id="rsvp" class="tab">
