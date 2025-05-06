@@ -51,4 +51,75 @@ footer {
   padding: 20px;
   font-family: var(--fonte-secundaria);
   margin-top: 40px;
+}/* Fontes */
+body {
+  font-family: 'Playfair Display', serif;
+  background-color: #fffaf3; /* fundo palha */
+  color: #5c3b1e; /* marrom suave para textos */
+  margin: 0;
+  padding: 0;
+}
+
+/* Cabeçalho */
+.hero {
+  background: linear-gradient(to bottom right, #d9a066, #d87256); /* palha para terracota */
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  font-family: 'Great Vibes', cursive;
+}
+
+.title {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Seções */
+.section {
+  padding: 40px 20px;
+  background-color: #f5efe0; /* fundo bege claro */
+  border-bottom: 2px solid #e5dac5;
+}
+
+.section h2 {
+  color: #3f6c51; /* verde musgo elegante */
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Botão RSVP */
+.rsvp-button {
+  display: inline-block;
+  padding: 12px 25px;
+  margin-top: 15px;
+  background-color: #3f6c51; /* verde musgo */
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.rsvp-button:hover {
+  background-color: #2c4f3c;
+}
+
+/* Rodapé */
+.footer {
+  text-align: center;
+  padding: 30px 10px;
+  background-color: #d9a066; /* palha/terracota */
+  color: white;
+  font-size: 1rem;
 }
