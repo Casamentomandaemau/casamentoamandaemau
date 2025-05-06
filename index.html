@@ -5,35 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Casamento Amanda e Mauricio</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <h1>Casamento Amanda & Mauricio</h1>
     <p>13 de junho de 2025</p>
-    <button onclick="showTab('home')">Início</button>
+    <nav>
+      <button onclick="showTab('inicio')">Início</button>
+      <button onclick="showTab('local')">Local</button>
       <button onclick="showTab('presentes')">Presentes</button>
       <button onclick="showTab('rsvp')">Confirme sua presença</button>
     </nav>
-    
-  <main> 
-  <section id="inicio" class="tab active">
-    <h2>Sejam bem-vindos ao nosso grande dia!</h2>
-    <p>Santo Antônio como guia e o amor como combustível, enfim pousamos neste momento tão esperado. Com nossa co-pilota mais especial, nossa filha, ao nosso lado, celebramos o que sempre foi destino: dizer 'SIM'.</p>
-  </section>
+  </header>
 
-  <section id="local" class="tab">
-    <h2>Cerimônia</h2>
-    <p>Às 19:45h.</p>
-    <p>Comunidade São Pedro e São Paulo - Rua Benedito Barbosa de Oliveira - Jardim Bom Retiro (Nova Veneza), Sumaré - SP, Brasil</p>
-    <h2>Cerimônia</h2>
-    <p>Recanto Santo Antônio - Pomares do Quilombo- Rua dos Pequis- Jardim Marchissolo,  Sumaré - SP, Brasil</p> 
-  </section>
+  <main>
+    <section id="inicio" class="tab active">
+      <h2>Sejam bem-vindos ao nosso grande dia!</h2>
+      <p>Santo Antônio como guia e o amor como combustível, enfim pousamos neste momento tão esperado. Com nossa co-pilota mais especial, nossa filha, ao nosso lado, celebramos o que sempre foi destino: dizer 'SIM'.</p>
+    </section>
+
+    <section id="local" class="tab">
+      <h2>Local da Cerimônia</h2>
+      <p><strong>19h45</strong> - Comunidade São Pedro e São Paulo</p>
+      <p>Rua Benedito Barbosa de Oliveira - Jardim Bom Retiro (Nova Veneza), Sumaré - SP</p>
+      
+      <h2>Recepção</h2>
+      <p>Recanto Santo Antônio - Pomares do Quilombo</p>
+      <p>Rua dos Pequis - Jardim Marchissolo, Sumaré - SP</p>
+    </section>
 
     <section id="presentes" class="tab">
       <h2>Como Presentear</h2>
+
       <h3>Cotas via Pix</h3>
-      <p>Escolha um valor e envie via Pix para:</p>
+      <p>Escolha um valor e envie via Pix:</p>
       <p><strong>Chave Pix:</strong> 19981870068</p>
       <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
       <div class="cotas">
@@ -83,4 +89,3 @@
   </script>
 </body>
 </html>
-
