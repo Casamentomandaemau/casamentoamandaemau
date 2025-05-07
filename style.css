@@ -1,191 +1,95 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Cores da paleta */
-:root {
-  --terracota: #b75d47;
-  --verde: #6a8d73;
-  --palha: #f9f4e8;
-  --branco: #ffffff;
-  --bege: #e9dbc8;
-  --cinza-claro: #f0f0f0;
-}
-
-/* Estilo geral */
+/* style.css */
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: var(--palha);
-  color: #333;
-  line-height: 1.6;
-  padding: 0 1rem;
+  background-color: #fffaf5;
+  color: #3b2f2f;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-  background-color: var(--terracota);
-  color: var(--branco);
+  background-color: #d8b9a3;
+  color: #fff;
   text-align: center;
   padding: 2rem 1rem;
-}
-
-header h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-header p {
-  font-size: 1rem;
-}
-
-/* Navegação */
-nav {
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
 nav button {
-  background-color: var(--bege);
+  margin: 0.3rem;
+  padding: 0.5rem 1rem;
+  background-color: #a05a2c;
+  color: #fff;
   border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 25px;
-  font-weight: bold;
+  border-radius: 20px;
   cursor: pointer;
+  font-weight: bold;
   transition: background-color 0.3s;
 }
-
 nav button:hover {
-  background-color: var(--verde);
-  color: var(--branco);
+  background-color: #7a4220;
 }
 
-nav button.active {
-  background-color: var(--terracota);
-  color: var(--branco);
-}
-
-/* Conteúdo principal */
 main {
-  max-width: 800px;
-  margin: 2rem auto;
-  background-color: var(--branco);
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-h2 {
-  font-family: 'Playfair Display', serif;
-  color: var(--terracota);
-  margin-bottom: 1rem;
-}
-
-h3 {
-  font-family: 'Playfair Display', serif;
-  color: var(--verde);
-  margin: 1.5rem 0 0.5rem;
 }
 
 .tab {
   display: none;
 }
-
 .tab.active {
   display: block;
 }
 
-/* Texto da seção Presentes (linha 42) */
+footer {
+  background-color: #d8b9a3;
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Estilo do texto de agradecimento */
 #presentes h2 {
-  font-size: 1.25rem;
-  font-weight: normal;
-  color: #444;
+  color: #8a4b32;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  background-color: #fef3e7;
+  padding: 1rem;
+  border-left: 4px solid #a05a2c;
   margin-bottom: 1.5rem;
 }
 
-/* Cotas de presente */
-.cotas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 1rem 0;
-}
-
+/* Estilo dos botões de cotas */
 .cotas button {
-  padding: 0.8rem 1.2rem;
-  border: none;
-  background-color: var(--verde);
-  color: var(--branco);
-  border-radius: 20px;
+  margin: 0.3rem;
+  padding: 0.6rem 1rem;
+  background-color: #d9cbb5;
+  border: 1px solid #a38c74;
+  border-radius: 12px;
+  font-weight: 600;
   cursor: pointer;
-  font-weight: bold;
 }
-
 .cotas button:hover {
-  background-color: #557661;
+  background-color: #c7b299;
 }
 
-.cotas button.adquirido {
-  background-color: #ccc;
-  color: #666;
-  cursor: default;
-}
-
-/* Lista de presentes */
-ul.presentes {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1rem;
-}
-
-ul.presentes li {
-  background-color: var(--cinza-claro);
-  padding: 0.8rem;
-  margin-bottom: 0.5rem;
-  border-radius: 8px;
+/* Presentes físicos */
+.presentes li {
+  margin: 0.5rem 0;
   cursor: pointer;
-  transition: background-color 0.2s;
+}
+.presentes li.adquirido {
+  color: #aaa;
+  text-decoration: line-through;
 }
 
-ul.presentes li:hover {
-  background-color: var(--bege);
-}
-
-ul.presentes li.adquirido {
-  background-color: #d9d9d9;
-  color: #888;
-  cursor: default;
-}
-
-/* Rodapé */
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  background-color: var(--terracota);
-  color: var(--branco);
-  margin-top: 2rem;
-}
-
-/* Responsividade */
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 1.5rem;
-  }
-
-  #presentes h2 {
-    font-size: 1rem;
-  }
-
-  nav {
-    flex-direction: column;
-  }
-
-  .cotas {
-    flex-direction: column;
-  }
+/* Estilo da imagem no fundo da aba Início */
+#inicio {
+  background-image: url('URL_DA_IMAGEM');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 80px;
+  padding-bottom: 100px;
 }
