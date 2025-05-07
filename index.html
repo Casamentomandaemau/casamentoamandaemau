@@ -6,6 +6,101 @@
   <title>Casamento Amanda e Mauricio</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      background-color: #fffaf5;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #f3ede5;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      color: #a0522d;
+      font-size: 2rem;
+    }
+
+    nav button {
+      margin: 0.3rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      background-color: #a0522d;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    nav button:hover {
+      background-color: #8b4513;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+    }
+
+    .cotas button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #a0522d;
+      background-color: #fff;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .cotas button.adquirido {
+      background-color: #ddd;
+      color: gray;
+      cursor: not-allowed;
+    }
+
+    .presentes li {
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .presentes li.adquirido {
+      color: gray;
+      text-decoration: line-through;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #f3ede5;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .mensagem-agradecimento {
+      font-size: 1rem;
+      color: #a0522d;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    #inicio {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Wedding_rings_icon.svg/1200px-Wedding_rings_icon.svg.png');
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: 120px;
+      padding-bottom: 140px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -36,65 +131,22 @@
     </section>
 
     <section id="presentes" class="tab">
-      <h2 style="font-size: 1.2rem; font-weight: 500;">Muito obrigado por estarem ao nosso lado nesse momento especial! Sabemos que cada presente representa o amor, presença e apoio que temos de nossos amigos e familiares e sempre levaremos em nossos corações.</h2>
+      <p class="mensagem-agradecimento">Muito obrigado por estarem ao nosso lado nesse momento especial! Sabemos que cada presente representa o amor, presença e apoio que temos de nossos amigos e familiares e sempre os levaremos em nossos corações.</p>
 
       <h3>Como Presentear</h3>
-      <p>Alguns dos presentes da nossa lista estão disponíveis em formato de cotas em dinheiro. Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix, com toda a praticidade — sem sair de casa e sem pagar frete.</p>
-      <p>Escolha um dos valores abaixo e envie sua contribuição via Pix.</p>
+      <p>Alguns dos presentes da nossa lista estão disponíveis em formato de cotas em dinheiro. Escolha um dos valores abaixo e envie sua contribuição via Pix.</p>
       <p><strong>Chave Pix:</strong> 19981870068</p>
       <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
       <div class="cotas">
         <button>R$50</button>
         <button>R$100</button>
-        <button>R$150</button> 
-        <button>R$200</button>
-        <button>R$250</button>
-        <button>R$350</button>
-        <button>R$50</button>
-        <button>R$100</button>
-        <button>R$150</button>
-        <button>R$450</button>
-        <button>R$500</button>
-        <button>R$650</button>
-        <button>R$50</button>
-        <button>R$100</button>
-        <button>R$150</button>
-        <button>R$750</button>
-        <button>R$800</button>
-        <button>R$950</button>
-        <button>R$1150</button>
-        <button>R$1000</button>
-        <button>R$1500</button>
-        <button>R$50</button>
-        <button>R$100</button>
-        <button>R$150</button>
-        <button>R$50</button>
-        <button>R$100</button>
-        <button>R$150</button>
-        <button>R$50</button>
-        <button>R$100</button>
         <button>R$150</button>
         <button>R$200</button>
-        <button>R$300</button>
-        <button>R$400</button>
-        <button>R$500</button>
-        <button>R$600</button>
-        <button>R$700</button>
-        <button>R$800</button>
-        <button>R$900</button>
-        <button>R$1000</button>
-        <button>R$1100</button>
-        <button>R$1200/button>
-        <button>R$1300/button>
         <button>Outro valor</button>
       </div>
 
-      <h3>Mas se preferir, temos uma lista com itens para presentear e nos entregar durante a festa.</h3>
+      <h3>Lista de Presentes Físicos</h3>
       <ul class="presentes">
-        <li>Jogo de cama - <a href="#" target="_blank">ver item</a></li>
-        <li>Panela de pressão - <a href="#" target="_blank">ver item</a></li>
-        <li>Liquidificador - <a href="#" target="_blank">ver item</a></li>
-        <li>Conjunto de pratos - <a href="#" target="_blank">ver item</a></li>
         <li>Jogo de cama - <a href="#" target="_blank">ver item</a></li>
         <li>Panela de pressão - <a href="#" target="_blank">ver item</a></li>
         <li>Liquidificador - <a href="#" target="_blank">ver item</a></li>
@@ -119,7 +171,7 @@
     }
   </script>
 
-  <!-- Firebase SDK e lógica de presentes -->
+  <!-- Firebase e controle de presentes -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
     import { getDatabase, ref, onValue, set, remove } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
@@ -137,19 +189,17 @@
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
-    const cotas = ["R$50", "R$100", "R$150", "Outro valor"];
-    const botoesCotas = document.querySelectorAll(".cotas button");
-    const listaPresentes = document.querySelectorAll(".presentes li");
+    const cotas = document.querySelectorAll(".cotas button");
+    const presentes = document.querySelectorAll(".presentes li");
 
     function nomePresente(el) {
-      return el.innerText.replace("✔️", "").split(" - ")[0].trim();
+      return el.innerText.split(" - ")[0].replace("✔️", "").trim();
     }
 
-    function atualizarEstado(snapshot) {
+    function atualizar(snapshot) {
       const dados = snapshot.val() || {};
 
-      // Cotas
-      botoesCotas.forEach(botao => {
+      cotas.forEach(botao => {
         const nome = botao.innerText.replace("✔️", "").trim();
         if (dados[nome]) {
           botao.disabled = true;
@@ -162,8 +212,7 @@
         }
       });
 
-      // Presentes físicos
-      listaPresentes.forEach(li => {
+      presentes.forEach(li => {
         const nome = nomePresente(li);
         if (dados[nome]) {
           li.classList.add("adquirido");
@@ -177,9 +226,9 @@
       });
     }
 
-    onValue(ref(db, "presentes"), atualizarEstado);
+    onValue(ref(db, "presentes"), atualizar);
 
-    botoesCotas.forEach(botao => {
+    cotas.forEach(botao => {
       botao.addEventListener("click", () => {
         const nome = botao.innerText.replace("✔️", "").trim();
         const refPresente = ref(db, "presentes/" + nome);
@@ -191,7 +240,7 @@
       });
     });
 
-    listaPresentes.forEach(li => {
+    presentes.forEach(li => {
       li.addEventListener("click", () => {
         const nome = nomePresente(li);
         const refPresente = ref(db, "presentes/" + nome);
