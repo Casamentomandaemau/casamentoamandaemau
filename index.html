@@ -36,26 +36,26 @@
     </section>
 
     <section id="presentes" class="tab">
-      <h2>Muito obrigado por estarem ao nosso lado nesse momento tão especial! Cada presente escolhido com carinho – seja em forma de cota ou item físico– representa muito mais do que um gesto material. É uma demonstração de amor, presença e apoio que levaremos para sempre em nossos corações. Estamos imensamente gratos por fazerem parte da nossa história.</h2>
+      <h2 style="font-size: 1.2rem; font-weight: 500;">Muito obrigado por estarem ao nosso lado nesse momento tão especial! Cada presente escolhido com carinho – seja em forma de cota ou item físico – representa muito mais do que um gesto material. É uma demonstração de amor, presença e apoio que levaremos para sempre em nossos corações.</h2>
 
-      <h3>Como Presentear </h3>
+      <h3>Como Presentear</h3>
       <p>Queridos amigos e familiares - Alguns dos presentes da nossa lista estão disponíveis em formato de cotas em dinheiro. Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix, com toda a praticidade — sem sair de casa e sem pagar frete.</p>
-      <p>Escolha um dos valores abaixo e envie sua contribuição via Pix.
+      <p>Escolha um dos valores abaixo e envie sua contribuição via Pix.</p>
       <p><strong>Chave Pix:</strong> 19981870068</p>
       <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
       <div class="cotas">
-        <button onclick="marcarPresente(this)">R$50</button>
-        <button onclick="marcarPresente(this)">R$100</button>
-        <button onclick="marcarPresente(this)">R$150</button>
-        <button onclick="marcarPresente(this)">Outro valor</button>
+        <button>R$50</button>
+        <button>R$100</button>
+        <button>R$150</button>
+        <button>Outro valor</button>
       </div>
 
-      <h3> Mas se preferir, você pode escolher um item da nossa lista para nos presentear e nos entregar durante a festa.</h3>
+      <h3>Mas se preferir, você pode escolher um item da nossa lista para nos presentear e nos entregar durante a festa.</h3>
       <ul class="presentes">
-        <li onclick="marcarItem(this)">Jogo de cama - <a href="#" target="_blank">ver item</a></li>
-        <li onclick="marcarItem(this)">Panela de pressão - <a href="#" target="_blank">ver item</a></li>
-        <li onclick="marcarItem(this)">Liquidificador - <a href="#" target="_blank">ver item</a></li>
-        <li onclick="marcarItem(this)">Conjunto de pratos - <a href="#" target="_blank">ver item</a></li>
+        <li>Jogo de cama - <a href="#" target="_blank">ver item</a></li>
+        <li>Panela de pressão - <a href="#" target="_blank">ver item</a></li>
+        <li>Liquidificador - <a href="#" target="_blank">ver item</a></li>
+        <li>Conjunto de pratos - <a href="#" target="_blank">ver item</a></li>
       </ul>
     </section>
 
@@ -74,19 +74,91 @@
       document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
     }
+  </script>
 
-    function marcarPresente(botao) {
-      botao.disabled = true;
-      botao.innerText = "✔️ Presente escolhido";
-      botao.classList.add("adquirido");
+  <!-- Firebase SDK e lógica de presentes -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getDatabase, ref, onValue, set, remove } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCVMEkMSwvYOzC83eQSxkRS655GSOmAPoA",
+      authDomain: "casamento-amanda-mauricio.firebaseapp.com",
+      databaseURL: "https://casamento-amanda-mauricio-default-rtdb.firebaseio.com",
+      projectId: "casamento-amanda-mauricio",
+      storageBucket: "casamento-amanda-mauricio.firebasestorage.app",
+      messagingSenderId: "1033630818479",
+      appId: "1:1033630818479:web:0f4f59df3ec85ed9b0745a"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const cotas = ["R$50", "R$100", "R$150", "Outro valor"];
+    const botoesCotas = document.querySelectorAll(".cotas button");
+    const listaPresentes = document.querySelectorAll(".presentes li");
+
+    function nomePresente(el) {
+      return el.innerText.replace("✔️", "").split(" - ")[0].trim();
     }
 
-    function marcarItem(item) {
-      if (!item.classList.contains("adquirido")) {
-        item.classList.add("adquirido");
-        item.innerHTML = "✔️ " + item.innerHTML;
-      }
+    function atualizarEstado(snapshot) {
+      const dados = snapshot.val() || {};
+
+      // Cotas
+      botoesCotas.forEach(botao => {
+        const nome = botao.innerText.replace("✔️", "").trim();
+        if (dados[nome]) {
+          botao.disabled = true;
+          botao.innerText = "✔️ Presente escolhido";
+          botao.classList.add("adquirido");
+        } else {
+          botao.disabled = false;
+          botao.innerText = nome;
+          botao.classList.remove("adquirido");
+        }
+      });
+
+      // Presentes físicos
+      listaPresentes.forEach(li => {
+        const nome = nomePresente(li);
+        if (dados[nome]) {
+          li.classList.add("adquirido");
+          if (!li.innerText.startsWith("✔️")) {
+            li.innerHTML = "✔️ " + li.innerHTML;
+          }
+        } else {
+          li.classList.remove("adquirido");
+          li.innerHTML = li.innerHTML.replace("✔️ ", "");
+        }
+      });
     }
+
+    onValue(ref(db, "presentes"), atualizarEstado);
+
+    botoesCotas.forEach(botao => {
+      botao.addEventListener("click", () => {
+        const nome = botao.innerText.replace("✔️", "").trim();
+        const refPresente = ref(db, "presentes/" + nome);
+        if (!botao.classList.contains("adquirido")) {
+          set(refPresente, true);
+        } else {
+          remove(refPresente);
+        }
+      });
+    });
+
+    listaPresentes.forEach(li => {
+      li.addEventListener("click", () => {
+        const nome = nomePresente(li);
+        const refPresente = ref(db, "presentes/" + nome);
+        if (!li.classList.contains("adquirido")) {
+          set(refPresente, true);
+        } else {
+          remove(refPresente);
+        }
+      });
+    });
   </script>
 </body>
 </html>
