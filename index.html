@@ -6,16 +6,87 @@
   <title>Casamento Amanda e Mauricio</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Casamento Amanda & Mauricio</h1>
+    <p>13 de junho de 2025</p>
+    <nav>
+      <button onclick="showTab('inicio')">Início</button>
+      <button onclick="showTab('local')">Local</button>
+      <button onclick="showTab('presentes')">Presentes</button>
+      <button onclick="showTab('rsvp')">Confirme sua presença</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="tab active">
+      <h2>Sejam bem-vindos ao nosso grande dia!</h2>
+      <p>Santo Antônio como guia e o amor como combustível, enfim pousamos neste momento tão esperado. Com nossa co-pilota mais especial, nossa filha, ao nosso lado, celebramos o que sempre foi destino: dizer 'SIM'.</p>
+    </section>
+
+    <section id="local" class="tab">
+      <h2>Local da Cerimônia</h2>
+      <p><strong>19h45</strong> - Comunidade São Pedro e São Paulo</p>
+      <p>Rua Benedito Barbosa de Oliveira - Jardim Bom Retiro (Nova Veneza), Sumaré - SP</p>
+      
+      <h2>Recepção</h2>
+      <p>Recanto Santo Antônio - Pomares do Quilombo</p>
+      <p>Rua dos Pequis - Jardim Marchissolo, Sumaré - SP</p>
+    </section>
+
+    <section id="presentes" class="tab">
+      <h2 style="font-size: 1.2rem; font-weight: 500;">Muito obrigado por estarem ao nosso lado nesse momento tão especial! Cada presente escolhido com carinho – seja em forma de cota ou item físico – representa muito mais do que um gesto material. É uma demonstração de amor, presença e apoio que levaremos para sempre em nossos corações.</h2>
+
+      <h3>Como Presentear</h3>
+      <p>Queridos amigos e familiares - Alguns dos presentes da nossa lista estão disponíveis em formato de cotas em dinheiro. Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix, com toda a praticidade — sem sair de casa e sem pagar frete.</p>
+      <p>Escolha um dos valores abaixo e envie sua contribuição via Pix.</p>
+      <p><strong>Chave Pix:</strong> 19981870068</p>
+      <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
+      <div class="cotas">
+        <button>R$50</button>
+        <button>R$100</button>
+        <button>R$150</button>
+        <button>Outro valor</button>
+      </div>
+
+      <h3>Mas se preferir, você pode escolher um item da nossa lista para nos presentear e nos entregar durante a festa.</h3>
+      <ul class="presentes">
+        <li>Jogo de cama - <a href="#" target="_blank">ver item</a></li>
+        <li>Panela de pressão - <a href="#" target="_blank">ver item</a></li>
+        <li>Liquidificador - <a href="#" target="_blank">ver item</a></li>
+        <li>Conjunto de pratos - <a href="#" target="_blank">ver item</a></li>
+      </ul>
+    </section>
+
+    <section id="rsvp" class="tab">
+      <h2>Confirmação de Presença</h2>
+      <p>Em breve você poderá confirmar sua presença por aqui.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Com carinho, Amanda & Mauricio</p>
+  </footer>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+
+  <!-- Firebase SDK e lógica de presentes -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-    import { getDatabase, ref, get, set, onValue, remove, child } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+    import { getDatabase, ref, onValue, set, remove } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyCVMEkMSwvYOzC83eQSxkRS655GSOmAPoA",
       authDomain: "casamento-amanda-mauricio.firebaseapp.com",
       databaseURL: "https://casamento-amanda-mauricio-default-rtdb.firebaseio.com",
       projectId: "casamento-amanda-mauricio",
-      storageBucket: "casamento-amanda-mauricio.appspot.com",
+      storageBucket: "casamento-amanda-mauricio.firebasestorage.app",
       messagingSenderId: "1033630818479",
       appId: "1:1033630818479:web:0f4f59df3ec85ed9b0745a"
     };
@@ -23,114 +94,71 @@
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const cotas = document.querySelectorAll(".cotas button");
+    const cotas = ["R$50", "R$100", "R$150", "Outro valor"];
+    const botoesCotas = document.querySelectorAll(".cotas button");
+    const listaPresentes = document.querySelectorAll(".presentes li");
 
-      cotas.forEach(botao => {
-        const valor = botao.innerText.replace(/[^\d]/g, '') || "outro";
-        const refCota = ref(db, `cotas/${valor}`);
+    function nomePresente(el) {
+      return el.innerText.replace("✔️", "").split(" - ")[0].trim();
+    }
 
-        onValue(refCota, (snapshot) => {
-          const escolhido = snapshot.val();
-          if (escolhido) {
-            botao.classList.add("adquirido");
-            botao.disabled = true;
-            botao.innerText = "✔️ Presente escolhido";
-          } else {
-            botao.classList.remove("adquirido");
-            botao.disabled = false;
-            botao.innerText = valor === "outro" ? "Outro valor" : `R$${valor}`;
-          }
-        });
+    function atualizarEstado(snapshot) {
+      const dados = snapshot.val() || {};
 
-        botao.addEventListener("click", () => {
-          get(refCota).then(snapshot => {
-            if (snapshot.exists()) {
-              remove(refCota);
-            } else {
-              set(refCota, true);
-            }
-          });
-        });
+      // Cotas
+      botoesCotas.forEach(botao => {
+        const nome = botao.innerText.replace("✔️", "").trim();
+        if (dados[nome]) {
+          botao.disabled = true;
+          botao.innerText = "✔️ Presente escolhido";
+          botao.classList.add("adquirido");
+        } else {
+          botao.disabled = false;
+          botao.innerText = nome;
+          botao.classList.remove("adquirido");
+        }
       });
 
-      const itens = document.querySelectorAll(".presentes li");
-
-      itens.forEach(item => {
-        const itemId = item.dataset.id;
-        const itemRef = ref(db, `presentes/${itemId}`);
-
-        onValue(itemRef, (snapshot) => {
-          const escolhido = snapshot.val();
-          if (escolhido) {
-            item.classList.add("adquirido");
-            item.innerHTML = `✔️ ${item.dataset.nome}`;
-          } else {
-            item.classList.remove("adquirido");
-            item.innerHTML = `${item.dataset.nome} - <a href="${item.dataset.link}" target="_blank">ver item</a>`;
+      // Presentes físicos
+      listaPresentes.forEach(li => {
+        const nome = nomePresente(li);
+        if (dados[nome]) {
+          li.classList.add("adquirido");
+          if (!li.innerText.startsWith("✔️")) {
+            li.innerHTML = "✔️ " + li.innerHTML;
           }
-        });
-
-        item.addEventListener("click", () => {
-          get(itemRef).then(snapshot => {
-            if (snapshot.exists()) {
-              remove(itemRef);
-            } else {
-              set(itemRef, true);
-            }
-          });
-        });
+        } else {
+          li.classList.remove("adquirido");
+          li.innerHTML = li.innerHTML.replace("✔️ ", "");
+        }
       });
+    }
 
-      const painel = document.getElementById("painel-presentes");
-      const painelCotas = document.getElementById("lista-cotas");
-      const painelItens = document.getElementById("lista-itens");
+    onValue(ref(db, "presentes"), atualizarEstado);
 
-      const atualizarPainel = () => {
-        get(ref(db)).then(snapshot => {
-          painelCotas.innerHTML = "";
-          painelItens.innerHTML = "";
+    botoesCotas.forEach(botao => {
+      botao.addEventListener("click", () => {
+        const nome = botao.innerText.replace("✔️", "").trim();
+        const refPresente = ref(db, "presentes/" + nome);
+        if (!botao.classList.contains("adquirido")) {
+          set(refPresente, true);
+        } else {
+          remove(refPresente);
+        }
+      });
+    });
 
-          const cotas = snapshot.val()?.cotas || {};
-          for (const [valor, presente] of Object.entries(cotas)) {
-            if (presente) {
-              const li = document.createElement("li");
-              li.textContent = valor === "outro" ? "Outro valor" : `R$${valor}`;
-              painelCotas.appendChild(li);
-            }
-          }
-
-          const itens = snapshot.val()?.presentes || {};
-          for (const [id, presente] of Object.entries(itens)) {
-            if (presente) {
-              const li = document.createElement("li");
-              li.textContent = id;
-              painelItens.appendChild(li);
-            }
-          }
-        });
-      };
-
-      document.getElementById("verPainel").addEventListener("click", () => {
-        document.getElementById("painel-presentes").classList.toggle("active");
-        atualizarPainel();
+    listaPresentes.forEach(li => {
+      li.addEventListener("click", () => {
+        const nome = nomePresente(li);
+        const refPresente = ref(db, "presentes/" + nome);
+        if (!li.classList.contains("adquirido")) {
+          set(refPresente, true);
+        } else {
+          remove(refPresente);
+        }
       });
     });
   </script>
-</head>
-<body>
-  <!-- botão para visualizar painel -->
-  <button id="verPainel">Ver painel de presentes escolhidos</button>
-
-  <section id="painel-presentes" class="tab" style="display:none">
-    <h2>Presentes Escolhidos</h2>
-    <h3>Cotas em dinheiro:</h3>
-    <ul id="lista-cotas"></ul>
-
-    <h3>Presentes físicos:</h3>
-    <ul id="lista-itens"></ul>
-  </section>
-
-  <!-- resto do HTML permanece igual -->
 </body>
 </html>
