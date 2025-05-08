@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Casamento Amanda & Mauricio</title>
+  <title>Casamento Amanda e Mauricio</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -21,7 +21,6 @@
 
   <main>
     <section id="inicio" class="tab active">
-      <img src="https://cdn.pixabay.com/photo/2016/11/29/12/54/wedding-rings-1867064_960_720.jpg" alt="Alianças de casamento" class="imagem-aliancas" />
       <h2>Sejam bem-vindos ao nosso grande dia!</h2>
       <p>Santo Antônio como guia e o amor como combustível, enfim pousamos neste momento tão esperado. Com nossa co-pilota mais especial, nossa filha, ao nosso lado, celebramos o que sempre foi destino: dizer 'SIM'.</p>
     </section>
@@ -37,25 +36,28 @@
     </section>
 
     <section id="presentes" class="tab">
-      <h2>Como Presentear</h2>
-      <p>Alguns dos presentes estão disponíveis em cotas via Pix:</p>
+      <h2>Muito obrigado por estarem ao nosso lado nesse momento tão especial! Cada presente escolhido com carinho – seja em forma de cota ou item físico– representa muito mais do que um gesto material. É uma demonstração de amor, presença e apoio que levaremos para sempre em nossos corações. Estamos imensamente gratos por fazerem parte da nossa história.</h2>
+
+      <h3>Como Presentear Pix</h3>
+      <p>Queridos amigos e familiares - Alguns dos presentes da nossa lista estão disponíveis em formato de cotas em dinheiro. Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix, com toda a praticidade — sem sair de casa e sem pagar frete</p>
+      <h3>Como Presentear </h3>
+      <p>Queridos amigos e familiares - Alguns dos presentes da nossa lista estão disponíveis em formato de cotas em dinheiro. Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix, com toda a praticidade — sem sair de casa e sem pagar frete.</p>
+      <p>Escolha um dos valores abaixo e envie sua contribuição via Pix.
       <p><strong>Chave Pix:</strong> 19981870068</p>
       <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
       <div class="cotas">
-        <button>R$50</button>
-        <button>R$100</button>
-        <button>R$150</button>
-        <button>R$200</button>
-        <button>Outro valor</button>
+        <button onclick="marcarPresente(this)">R$50</button>
+        <button onclick="marcarPresente(this)">R$100</button>
+        <button onclick="marcarPresente(this)">R$150</button>
+        <button onclick="marcarPresente(this)">Outro valor</button>
       </div>
 
-      <h3>Lista de Presentes Físicos</h3>
+      <h3> Mas se preferir, você pode escolher um item da nossa lista para nos presentear e nos entregar durante a festa.</h3>
       <ul class="presentes">
-        <li>Liquidificador 127v - <a href="https://www.oster.com.br/liquidificador-1400-full-oster-preto/p">ver item</a></li>
-        <li>Batedeira Planetária 127v - <a href="https://www.britania.com.br/batedeira-planetaria-bbpe01-127v-033401242/p">ver item</a></li>
-        <li>Panela Elétrica para arroz 127v - <a href="https://loja.electrolux.com.br/panela-eletrica-easyline-7-xicaras-13l-rcb50-electrolux/p">ver item</a></li>
-        <li>Conjunto de jarra com copos - <a href="https://wolycasa.com.br/products/conjunto-jarra-com-6-copos-de-vidro-diamante-1l-300ml-lyor">ver item</a></li>
-        <li>Aparelho de jantar 30 peças - <a href="https://a.co/d/6UiuT1pk">ver item</a></li>
+        <li onclick="marcarItem(this)">Jogo de cama - <a href="#" target="_blank">ver item</a></li>
+        <li onclick="marcarItem(this)">Panela de pressão - <a href="#" target="_blank">ver item</a></li>
+        <li onclick="marcarItem(this)">Liquidificador - <a href="#" target="_blank">ver item</a></li>
+        <li onclick="marcarItem(this)">Conjunto de pratos - <a href="#" target="_blank">ver item</a></li>
       </ul>
     </section>
 
@@ -71,8 +73,21 @@
 
   <script>
     function showTab(tabId) {
-      document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
-      document.getElementById(tabId).classList.add("active");
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function marcarPresente(botao) {
+      botao.disabled = true;
+      botao.innerText = "✔️ Presente escolhido";
+      botao.classList.add("adquirido");
+    }
+
+    function marcarItem(item) {
+      if (!item.classList.contains("adquirido")) {
+        item.classList.add("adquirido");
+        item.innerHTML = "✔️ " + item.innerHTML;
+      }
     }
   </script>
 </body>
