@@ -4,148 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Casamento Amanda e Mauricio</title>
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --terracota: #a0522d;
-      --verde: #6b8e23;
-      --palha: #fffaf0;
-      --bege: #f5f5dc;
-      --branco: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Quicksand', sans-serif;
-      margin: 0;
-      background-color: var(--palha);
-      color: #333;
-    }
-
-    header {
-      background-color: var(--bege);
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      color: var(--terracota);
-      font-size: 2.5rem;
-      margin: 0;
-    }
-
-    header img {
-      width: 40px;
-      margin: 0 10px -10px 0;
-      vertical-align: middle;
-    }
-
-    nav {
-      margin-top: 1rem;
-    }
-
-    nav button {
-      margin: 0.3rem;
-      padding: 0.6rem 1.2rem;
-      border: none;
-      background-color: var(--terracota);
-      color: white;
-      font-weight: bold;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-
-    nav button:hover,
-    nav button.active {
-      background-color: #8b4513;
-    }
-
-    main {
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .tab {
-      display: none;
-    }
-
-    .tab.active {
-      display: block;
-      animation: fadeIn 0.5s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .cotas button {
-      margin: 6px;
-      padding: 10px 16px;
-      font-size: 1rem;
-      border: 1px solid var(--terracota);
-      background-color: var(--branco);
-      color: var(--terracota);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .cotas button:hover {
-      background-color: var(--terracota);
-      color: var(--branco);
-    }
-
-    .presentes li {
-      margin: 8px 0;
-      cursor: pointer;
-    }
-
-    .presentes li.adquirido {
-      color: gray;
-      text-decoration: line-through;
-    }
-
-    footer {
-      text-align: center;
-      background-color: var(--bege);
-      padding: 1rem;
-      font-size: 0.9rem;
-      margin-top: 2rem;
-    }
-
-    textarea {
-      width: 100%;
-      padding: 10px;
-      font-family: 'Quicksand';
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-
-    .mensagem {
-      border-left: 4px solid var(--terracota);
-      padding-left: 10px;
-      margin-bottom: 10px;
-      background-color: #fffdf7;
-    }
-  </style>
 </head>
 <body>
   <header>
-    <h1><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Wedding_rings_icon.svg" alt="Alianças"> Amanda & Mauricio</h1>
+    <h1>Casamento Amanda & Mauricio</h1>
     <p>13 de junho de 2025</p>
     <nav>
-      <button onclick="showTab('inicio')" class="active">Início</button>
+      <button onclick="showTab('inicio')">Início</button>
       <button onclick="showTab('local')">Local</button>
       <button onclick="showTab('presentes')">Presentes</button>
-      <button onclick="showTab('rsvp')">RSVP</button>
-      <button onclick="showTab('recados')">Mural de Recados</button>
+      <button onclick="showTab('rsvp')">Confirme sua presença</button>
     </nav>
   </header>
 
@@ -159,26 +29,75 @@
       <h2>Local da Cerimônia</h2>
       <p><strong>19h45</strong> - Comunidade São Pedro e São Paulo</p>
       <p>Rua Benedito Barbosa de Oliveira - Jardim Bom Retiro (Nova Veneza), Sumaré - SP</p>
+
       <h2>Recepção</h2>
       <p>Recanto Santo Antônio - Pomares do Quilombo</p>
       <p>Rua dos Pequis - Jardim Marchissolo, Sumaré - SP</p>
     </section>
 
     <section id="presentes" class="tab">
+      <h2 style="font-size: 1.2rem; font-weight: 500;">Muito obrigado por estarem ao nosso lado nesse momento tão especial! Cada presente escolhido com carinho – seja em forma de cota ou item físico – representa muito mais do que um gesto material. É uma demonstração de amor, presença e apoio que levaremos para sempre em nossos corações.</h2>
+      <h2 style="font-size: 1.2rem; font-weight: 500;">Muito obrigado por estarem ao nosso lado nesse momento especial! Sabemos que cada presente representa o amor, presença e apoio que temos de nossos amigos e familiares e sempre levaremos em nossos corações.</h2>
+
       <h3>Como Presentear</h3>
-      <p>Contribua com cotas em dinheiro via Pix ou escolha um presente físico.</p>
+      <p>Queridos amigos e familiares - Alguns dos presentes da nossa lista estão disponíveis em formato de cotas em dinheiro. Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix, com toda a praticidade — sem sair de casa e sem pagar frete.</p>
+      <p>Alguns dos presentes da nossa lista estão disponíveis em formato de cotas em dinheiro. Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix, com toda a praticidade — sem sair de casa e sem pagar frete.</p>
+      <p>Escolha um dos valores abaixo e envie sua contribuição via Pix.</p>
       <p><strong>Chave Pix:</strong> 19981870068</p>
       <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
       <div class="cotas">
         <button>R$50</button>
         <button>R$100</button>
+        <button>R$150</button> 
+        <button>R$200</button>
+        <button>R$250</button>
+        <button>R$350</button>
+        <button>R$50</button>
+        <button>R$100</button>
+        <button>R$150</button>
+        <button>R$450</button>
+        <button>R$500</button>
+        <button>R$650</button>
+        <button>R$50</button>
+        <button>R$100</button>
+        <button>R$150</button>
+        <button>R$750</button>
+        <button>R$800</button>
+        <button>R$950</button>
+        <button>R$1150</button>
+        <button>R$1000</button>
+        <button>R$1500</button>
+        <button>R$50</button>
+        <button>R$100</button>
+        <button>R$150</button>
+        <button>R$50</button>
+        <button>R$100</button>
+        <button>R$150</button>
+        <button>R$50</button>
+        <button>R$100</button>
         <button>R$150</button>
         <button>R$200</button>
+        <button>R$300</button>
+        <button>R$400</button>
+        <button>R$500</button>
+        <button>R$600</button>
+        <button>R$700</button>
+        <button>R$800</button>
+        <button>R$900</button>
+        <button>R$1000</button>
+        <button>R$1100</button>
+        <button>R$1200/button>
+        <button>R$1300/button>
         <button>Outro valor</button>
       </div>
 
-      <h3>Presentes Físicos</h3>
+      <h3>Mas se preferir, você pode escolher um item da nossa lista para nos presentear e nos entregar durante a festa.</h3>
+      <h3>Mas se preferir, temos uma lista com itens para presentear e nos entregar durante a festa.</h3>
       <ul class="presentes">
+        <li>Jogo de cama - <a href="#" target="_blank">ver item</a></li>
+        <li>Panela de pressão - <a href="#" target="_blank">ver item</a></li>
+        <li>Liquidificador - <a href="#" target="_blank">ver item</a></li>
+        <li>Conjunto de pratos - <a href="#" target="_blank">ver item</a></li>
         <li>Jogo de cama - <a href="#" target="_blank">ver item</a></li>
         <li>Panela de pressão - <a href="#" target="_blank">ver item</a></li>
         <li>Liquidificador - <a href="#" target="_blank">ver item</a></li>
@@ -190,13 +109,6 @@
       <h2>Confirmação de Presença</h2>
       <p>Em breve você poderá confirmar sua presença por aqui.</p>
     </section>
-
-    <section id="recados" class="tab">
-      <h2>Mural de Recados</h2>
-      <textarea id="novaMensagem" rows="4" placeholder="Escreva uma mensagem para os noivos..."></textarea>
-      <button onclick="enviarRecado()">Enviar mensagem</button>
-      <div id="mensagens"></div>
-    </section>
   </main>
 
   <footer>
@@ -207,21 +119,20 @@
     function showTab(tabId) {
       document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
-      document.querySelectorAll("nav button").forEach(btn => btn.classList.remove("active"));
-      document.querySelector(`nav button[onclick="showTab('${tabId}')"]`).classList.add("active");
     }
   </script>
 
+  <!-- Firebase SDK e lógica de presentes -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-    import { getDatabase, ref, onValue, set, push } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+    import { getDatabase, ref, onValue, set, remove } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyCVMEkMSwvYOzC83eQSxkRS655GSOmAPoA",
       authDomain: "casamento-amanda-mauricio.firebaseapp.com",
       databaseURL: "https://casamento-amanda-mauricio-default-rtdb.firebaseio.com",
       projectId: "casamento-amanda-mauricio",
-      storageBucket: "casamento-amanda-mauricio.appspot.com",
+      storageBucket: "casamento-amanda-mauricio.firebasestorage.app",
       messagingSenderId: "1033630818479",
       appId: "1:1033630818479:web:0f4f59df3ec85ed9b0745a"
     };
@@ -229,54 +140,71 @@
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
-    const presentes = document.querySelectorAll(".presentes li");
-    const refPresente = ref(db, "presentes");
+    const cotas = ["R$50", "R$100", "R$150", "Outro valor"];
+    const botoesCotas = document.querySelectorAll(".cotas button");
+    const listaPresentes = document.querySelectorAll(".presentes li");
 
-    onValue(refPresente, (snapshot) => {
+    function nomePresente(el) {
+      return el.innerText.replace("✔️", "").split(" - ")[0].trim();
+    }
+
+    function atualizarEstado(snapshot) {
       const dados = snapshot.val() || {};
-      presentes.forEach(li => {
-        const nome = li.innerText.split(" - ")[0];
+
+      // Cotas
+      botoesCotas.forEach(botao => {
+        const nome = botao.innerText.replace("✔️", "").trim();
+        if (dados[nome]) {
+          botao.disabled = true;
+          botao.innerText = "✔️ Presente escolhido";
+          botao.classList.add("adquirido");
+        } else {
+          botao.disabled = false;
+          botao.innerText = nome;
+          botao.classList.remove("adquirido");
+        }
+      });
+
+      // Presentes físicos
+      listaPresentes.forEach(li => {
+        const nome = nomePresente(li);
         if (dados[nome]) {
           li.classList.add("adquirido");
+          if (!li.innerText.startsWith("✔️")) {
+            li.innerHTML = "✔️ " + li.innerHTML;
+          }
         } else {
           li.classList.remove("adquirido");
+          li.innerHTML = li.innerHTML.replace("✔️ ", "");
+        }
+      });
+    }
+
+    onValue(ref(db, "presentes"), atualizarEstado);
+
+    botoesCotas.forEach(botao => {
+      botao.addEventListener("click", () => {
+        const nome = botao.innerText.replace("✔️", "").trim();
+        const refPresente = ref(db, "presentes/" + nome);
+        if (!botao.classList.contains("adquirido")) {
+          set(refPresente, true);
+        } else {
+          remove(refPresente);
         }
       });
     });
 
-    presentes.forEach(li => {
+    listaPresentes.forEach(li => {
       li.addEventListener("click", () => {
-        const nome = li.innerText.split(" - ")[0];
-        const refItem = ref(db, "presentes/" + nome);
-        set(refItem, true);
-      });
-    });
-
-    const mensagensRef = ref(db, "recados");
-    const mensagensDiv = document.getElementById("mensagens");
-
-    function carregarMensagens() {
-      onValue(mensagensRef, snapshot => {
-        mensagensDiv.innerHTML = "";
-        const msgs = snapshot.val();
-        for (const id in msgs) {
-          const div = document.createElement("div");
-          div.classList.add("mensagem");
-          div.textContent = msgs[id];
-          mensagensDiv.appendChild(div);
+        const nome = nomePresente(li);
+        const refPresente = ref(db, "presentes/" + nome);
+        if (!li.classList.contains("adquirido")) {
+          set(refPresente, true);
+        } else {
+          remove(refPresente);
         }
       });
-    }
-
-    function enviarRecado() {
-      const msg = document.getElementById("novaMensagem").value.trim();
-      if (msg) {
-        push(mensagensRef, msg);
-        document.getElementById("novaMensagem").value = "";
-      }
-    }
-
-    carregarMensagens();
+    });
   </script>
 </body>
 </html>
