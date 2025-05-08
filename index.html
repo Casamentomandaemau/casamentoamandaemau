@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Casamento Amanda & Mauricio</title>
-  <title>13 de junho de 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
@@ -14,13 +13,14 @@
       padding: 0;
       background-color: #fdfcf9;
       color: #4a4a4a;
+      line-height: 1.6;
     }
 
     header {
-      background-color: #e9e4d4;
+      background-color: #eac0b0;
       color: #5a5a3f;
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
       background-repeat: no-repeat;
       background-position: center;
       background-size: 80px;
@@ -28,13 +28,15 @@
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
     }
 
     nav {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem;
+      gap: 0.5rem;
       background-color: #dcd2be;
       padding: 1rem;
     }
@@ -43,18 +45,22 @@
       background-color: #7b8a61;
       color: white;
       border: none;
-      padding: 0.7rem 1.2rem;
+      padding: 0.6rem 1rem;
       border-radius: 8px;
       cursor: pointer;
       font-size: 1rem;
+      flex: 1 1 auto;
+      min-width: 100px;
     }
 
     nav button:hover {
       background-color: #5f6e49;
     }
 
-    main {
-      padding: 1.5rem;
+  main {
+      padding: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     section {
@@ -70,6 +76,7 @@
       color: #5a5a3f;
       text-align: center;
       padding: 1rem;
+      font-size: 0.9rem;
     }
 
     textarea {
@@ -80,19 +87,66 @@
       border-radius: 8px;
       border: 1px solid #ccc;
       font-family: 'Quicksand', sans-serif;
+      font-size: 1rem;
     }
 
     button {
       background-color: #a85c4c;
       color: white;
       border: none;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1rem;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 1rem;
     }
 
-    button:hover {
+     button:hover {
       background-color: #8e4e41;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    ul li {
+      margin: 0.4rem 0;
+    }
+
+    a {
+      color: #7b8a61;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #5f6e49;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      nav button {
+        font-size: 1rem;
+        padding: 0.8rem;
+      }
+
+      main {
+        padding: 0.8rem;
+      }
+
+      textarea {
+        font-size: 1rem;
+      }
+
+      button {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -101,6 +155,7 @@
   <header>
     <h1>Amanda & Mauricio</h1>
    <p><strong>Sejam bem-vindos ao nosso grande dia!<p><strong>
+   <p><strong>13 de junho de 2025 <p><strong>
     </header>
 
   <nav>
@@ -173,7 +228,7 @@
     <p>Com Carinho Amanda & Mauricio</p>
   </footer>
 
-  <script>
+ <script>
     function showSection(sectionId) {
       document.querySelectorAll('main > section').forEach(s => s.style.display = 'none');
       document.getElementById(sectionId).style.display = 'block';
@@ -195,7 +250,6 @@
     }
     const x = setInterval(countdown, 1000);
 
-    // Mural de Recados simples
     function salvarMensagem() {
       const texto = document.getElementById('mensagem').value;
       if (texto.trim() !== '') {
