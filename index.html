@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Casamento Amanda e Mauricio</title>
+  <!-- Importa o CSS atualizado -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Importa as fontes utilizadas -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -12,6 +14,7 @@
     <h1>Casamento Amanda & Mauricio</h1>
     <p>13 de junho de 2025</p>
     <nav>
+      <!-- Botões para navegação entre seções -->
       <button onclick="showTab('inicio')">Início</button>
       <button onclick="showTab('local')">Local</button>
       <button onclick="showTab('presentes')">Presentes</button>
@@ -20,11 +23,13 @@
   </header>
 
   <main>
+    <!-- Seção de boas-vindas -->
     <section id="inicio" class="tab active">
       <h2>Sejam bem-vindos ao nosso grande dia!</h2>
       <p>Santo Antônio como guia e o amor como combustível, enfim pousamos neste momento tão esperado. Com nossa co-pilota mais especial, nossa filha, ao nosso lado, celebramos o que sempre foi destino: dizer 'SIM'.</p>
     </section>
 
+    <!-- Seção com informações sobre o local -->
     <section id="local" class="tab">
       <h2>Local da Cerimônia</h2>
       <p><strong>19h45</strong> - Comunidade São Pedro e São Paulo</p>
@@ -35,14 +40,12 @@
       <p>Rua dos Pequis - Jardim Marchissolo, Sumaré - SP</p>
     </section>
 
+    <!-- Seção de presentes -->
     <section id="presentes" class="tab">
       <h2>Muito obrigado por estarem ao nosso lado nesse momento tão especial! Cada presente escolhido com carinho – seja em forma de cota ou item físico– representa muito mais do que um gesto material. É uma demonstração de amor, presença e apoio que levaremos para sempre em nossos corações. Estamos imensamente gratos por fazerem parte da nossa história.</h2>
 
-      <h3>Como Presentear Pix</h3>
-      <p>Queridos amigos e familiares - Alguns dos presentes da nossa lista estão disponíveis em formato de cotas em dinheiro. Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix, com toda a praticidade — sem sair de casa e sem pagar frete</p>
-      <h3>Como Presentear </h3>
+      <h3>Como Presentear via Pix</h3>
       <p>Queridos amigos e familiares - Alguns dos presentes da nossa lista estão disponíveis em formato de cotas em dinheiro. Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix, com toda a praticidade — sem sair de casa e sem pagar frete.</p>
-      <p>Escolha um dos valores abaixo e envie sua contribuição via Pix.
       <p><strong>Chave Pix:</strong> 19981870068</p>
       <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
       <div class="cotas">
@@ -52,7 +55,8 @@
         <button onclick="marcarPresente(this)">Outro valor</button>
       </div>
 
-      <h3> Mas se preferir, você pode escolher um item da nossa lista para nos presentear e nos entregar durante a festa.</h3>
+      <h3>Como Presentear com Itens Físicos</h3>
+      <p>Se preferir, você pode escolher um item da nossa lista para nos presentear e nos entregar durante a festa.</p>
       <ul class="presentes">
         <li onclick="marcarItem(this)">Jogo de cama - <a href="#" target="_blank">ver item</a></li>
         <li onclick="marcarItem(this)">Panela de pressão - <a href="#" target="_blank">ver item</a></li>
@@ -61,6 +65,7 @@
       </ul>
     </section>
 
+    <!-- Seção de confirmação de presença -->
     <section id="rsvp" class="tab">
       <h2>Confirmação de Presença</h2>
       <p>Em breve você poderá confirmar sua presença por aqui.</p>
@@ -71,6 +76,7 @@
     <p>Com carinho, Amanda & Mauricio</p>
   </footer>
 
+  <!-- JavaScript para funcionalidade de navegação e interação -->
   <script>
     function showTab(tabId) {
       document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
