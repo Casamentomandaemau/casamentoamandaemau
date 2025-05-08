@@ -15,22 +15,22 @@
     <p>13 de junho de 2025</p>
     <nav>
       <!-- Botões para navegação entre seções -->
-      <button onclick="showTab('inicio')">Início</button>
-      <button onclick="showTab('local')">Local</button>
-      <button onclick="showTab('presentes')">Presentes</button>
-      <button onclick="showTab('rsvp')">Confirme sua presença</button>
+      <button data-tab-target="#inicio" class="tab-button active">Início</button>
+      <button data-tab-target="#local" class="tab-button">Local</button>
+      <button data-tab-target="#presentes" class="tab-button">Presentes</button>
+      <button data-tab-target="#rsvp" class="tab-button">Confirme sua presença</button>
     </nav>
   </header>
 
   <main>
     <!-- Seção de boas-vindas -->
-    <section id="inicio" class="tab active">
+    <section id="inicio" class="tab-content active">
       <h2>Sejam bem-vindos ao nosso grande dia!</h2>
       <p>Santo Antônio como guia e o amor como combustível, enfim pousamos neste momento tão esperado. Com nossa co-pilota mais especial, nossa filha, ao nosso lado, celebramos o que sempre foi destino: dizer 'SIM'.</p>
     </section>
 
     <!-- Seção com informações sobre o local -->
-    <section id="local" class="tab">
+    <section id="local" class="tab-content">
       <h2>Local da Cerimônia</h2>
       <p><strong>19h45</strong> - Comunidade São Pedro e São Paulo</p>
       <p>Rua Benedito Barbosa de Oliveira - Jardim Bom Retiro (Nova Veneza), Sumaré - SP</p>
@@ -41,8 +41,9 @@
     </section>
 
     <!-- Seção de presentes -->
-    <section id="presentes" class="tab">
-      <h2>Muito obrigado por estarem ao nosso lado nesse momento tão especial! Cada presente escolhido com carinho – seja em forma de cota ou item físico– representa muito mais do que um gesto material. É uma demonstração de amor, presença e apoio que levaremos para sempre em nossos corações. Estamos imensamente gratos por fazerem parte da nossa história.</h2>
+    <section id="presentes" class="tab-content">
+      <h2>Muito obrigado por estarem ao nosso lado nesse momento tão especial!</h2>
+      <p>Cada presente escolhido com carinho – seja em forma de cota ou item físico – representa muito mais do que um gesto material. É uma demonstração de amor, presença e apoio que levaremos para sempre em nossos corações. Estamos imensamente gratos por fazerem parte da nossa história.</p>
 
       <h3>Como Presentear via Pix</h3>
       <p>Queridos amigos e familiares - Alguns dos presentes da nossa lista estão disponíveis em formato de cotas em dinheiro. Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix, com toda a praticidade — sem sair de casa e sem pagar frete.</p>
@@ -66,7 +67,7 @@
     </section>
 
     <!-- Seção de confirmação de presença -->
-    <section id="rsvp" class="tab">
+    <section id="rsvp" class="tab-content">
       <h2>Confirmação de Presença</h2>
       <p>Em breve você poderá confirmar sua presença por aqui.</p>
     </section>
@@ -78,17 +79,32 @@
 
   <!-- JavaScript para funcionalidade de navegação e interação -->
   <script>
-    function showTab(tabId) {
-      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-    }
+    // Função para alternar abas
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
 
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = document.querySelector(button.dataset.tabTarget);
+
+        // Remove a classe 'active' de todos os botões e conteúdos
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(tab => tab.classList.remove('active'));
+
+        // Adiciona a classe 'active' ao botão e ao conteúdo correspondente
+        button.classList.add('active');
+        target.classList.add('active');
+      });
+    });
+
+    // Função para marcar um presente como escolhido
     function marcarPresente(botao) {
       botao.disabled = true;
       botao.innerText = "✔️ Presente escolhido";
       botao.classList.add("adquirido");
     }
 
+    // Função para marcar um item como adquirido
     function marcarItem(item) {
       if (!item.classList.contains("adquirido")) {
         item.classList.add("adquirido");
