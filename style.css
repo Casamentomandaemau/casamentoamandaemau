@@ -1,95 +1,140 @@
-/* style.css */
+:root {
+  --terracota: #D36B4F;
+  --verde-oliva: #556B2F;
+  --palha: #FAF3E0;
+  --branco: #ffffff;
+  --fonte-titulo: 'Playfair Display', serif;
+  --fonte-texto: 'Quicksand', sans-serif;
+}
+
 body {
-  font-family: 'Quicksand', sans-serif;
-  background-color: #fffaf5;
-  color: #3b2f2f;
   margin: 0;
-  padding: 0;
+  font-family: var(--fonte-texto);
+  background-color: var(--palha);
+  color: #333;
 }
 
 header {
-  background-color: #d8b9a3;
-  color: #fff;
+  background-color: var(--terracota);
+  color: var(--branco);
   text-align: center;
   padding: 2rem 1rem;
-  font-family: 'Playfair Display', serif;
+}
+
+header h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+header p {
+  margin: 0.5rem 0 1rem;
+  font-size: 1.2rem;
+}
+
+nav {
+  margin-top: 1rem;
 }
 
 nav button {
-  margin: 0.3rem;
-  padding: 0.5rem 1rem;
-  background-color: #a05a2c;
-  color: #fff;
+  background-color: var(--verde-oliva);
+  color: var(--branco);
   border: none;
-  border-radius: 20px;
-  cursor: pointer;
+  margin: 0.2rem;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
   font-weight: bold;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
+
 nav button:hover {
-  background-color: #7a4220;
+  background-color: #6b8e23;
 }
 
 main {
-  padding: 2rem;
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: auto;
 }
 
 .tab {
   display: none;
 }
+
 .tab.active {
   display: block;
 }
 
-footer {
-  background-color: #d8b9a3;
-  text-align: center;
-  padding: 1rem;
-  color: #fff;
-  font-size: 0.9rem;
+h2, h3 {
+  font-family: var(--fonte-titulo);
+  color: var(--terracota);
 }
 
-/* Estilo do texto de agradecimento */
-#presentes h2 {
-  color: #8a4b32;
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  font-weight: 400;
-  background-color: #fef3e7;
-  padding: 1rem;
-  border-left: 4px solid #a05a2c;
-  margin-bottom: 1.5rem;
+a {
+  color: var(--verde-oliva);
+  text-decoration: underline;
 }
 
-/* Estilo dos botões de cotas */
-.cotas button {
-  margin: 0.3rem;
-  padding: 0.6rem 1rem;
-  background-color: #d9cbb5;
-  border: 1px solid #a38c74;
-  border-radius: 12px;
-  font-weight: 600;
-  cursor: pointer;
-}
-.cotas button:hover {
-  background-color: #c7b299;
+a:hover {
+  color: var(--terracota);
 }
 
-/* Presentes físicos */
-.presentes li {
+ul.presentes {
+  list-style: none;
+  padding: 0;
+}
+
+ul.presentes li {
+  background-color: var(--branco);
+  padding: 0.5rem;
   margin: 0.5rem 0;
-  cursor: pointer;
+  border-left: 5px solid var(--terracota);
+  border-radius: 5px;
 }
-.presentes li.adquirido {
-  color: #aaa;
+
+ul.presentes li.adquirido {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+button.adquirido {
+  opacity: 0.6;
   text-decoration: line-through;
 }
 
-/* Estilo da imagem no fundo da aba Início */
-#inicio {
-  background-image: url('URL_DA_IMAGEM');
-  background-repeat: no-repeat;
-  background-position: right bottom;
-  background-size: 80px;
-  padding-bottom: 100px;
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--verde-oliva);
+  color: var(--branco);
+  font-weight: bold;
+}
+
+.cotas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.cotas button {
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--terracota);
+  color: var(--branco);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cotas button:hover {
+  background-color: #b2593f;
+}
+
+.img-aliancas {
+  max-width: 100px;
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
 }
