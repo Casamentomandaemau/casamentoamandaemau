@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Casamento Amanda & Mauricio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
@@ -21,14 +20,11 @@
       color: #5a5a3f;
       text-align: center;
       padding: 2rem 1rem;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 80px;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       margin-bottom: 0.5rem;
     }
 
@@ -36,9 +32,9 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.5rem;
       background-color: #dcd2be;
       padding: 1rem;
+      gap: 0.5rem;
     }
 
     nav button {
@@ -49,15 +45,18 @@
       border-radius: 8px;
       cursor: pointer;
       font-size: 1rem;
-      flex: 1 1 auto;
-      min-width: 100px;
+      transition: background-color 0.3s;
     }
 
     nav button:hover {
       background-color: #5f6e49;
     }
 
-  main {
+    nav button.active {
+      background-color: #a85c4c;
+    }
+
+    main {
       padding: 1rem;
       max-width: 900px;
       margin: 0 auto;
@@ -67,7 +66,7 @@
       display: none;
     }
 
-    section#inicio {
+    section.active {
       display: block;
     }
 
@@ -90,7 +89,8 @@
       font-size: 1rem;
     }
 
-    button {
+    button[type="submit"],
+    section button {
       background-color: #a85c4c;
       color: white;
       border: none;
@@ -100,7 +100,8 @@
       font-size: 1rem;
     }
 
-     button:hover {
+    button[type="submit"]:hover,
+    section button:hover {
       background-color: #8e4e41;
     }
 
@@ -123,28 +124,27 @@
 
     @media (max-width: 600px) {
       h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
 
       nav {
         flex-direction: column;
         gap: 0.5rem;
+        align-items: stretch;
       }
 
       nav button {
-        font-size: 1rem;
-        padding: 0.8rem;
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 1rem;
       }
 
       main {
-        padding: 0.8rem;
+        padding: 1rem 0.5rem;
       }
 
-      textarea {
-        font-size: 1rem;
-      }
-
-      button {
+      button[type="submit"],
+      section button {
         width: 100%;
       }
     }
@@ -154,25 +154,24 @@
 <body>
   <header>
     <h1>Amanda & Mauricio</h1>
-   <p><strong>Sejam bem-vindos ao nosso grande dia!<p><strong>
-   <p><strong>13 de junho de 2025 <p><strong>
-    </header>
+    <p><strong>Sejam bem-vindos ao nosso grande dia!</strong></p>
+    <p><strong>13 de junho de 2025</strong></p>
+  </header>
 
   <nav>
-    <button onclick="showSection('inicio')">Início</button>
-    <button onclick="showSection('local')">Local</button>
-    <button onclick="showSection('presentes')">Presentes</button>
-    <button onclick="showSection('rsvp')">RSVP</button>
-    <button onclick="showSection('mural')">Mural de Recados</button>
-    <button onclick="showSection('info')">Informações Úteis</button>
+    <button class="tab active" onclick="showSection('inicio', this)">Início</button>
+    <button class="tab" onclick="showSection('local', this)">Local</button>
+    <button class="tab" onclick="showSection('presentes', this)">Presentes</button>
+    <button class="tab" onclick="showSection('rsvp', this)">RSVP</button>
+    <button class="tab" onclick="showSection('mural', this)">Mural de Recados</button>
+    <button class="tab" onclick="showSection('info', this)">Informações Úteis</button>
   </nav>
 
   <main>
-    <section id="inicio">
+    <section id="inicio" class="active">
       <p>Santo Antônio como guia e o amor como combustível, enfim pousamos neste momento tão esperado. Com nossa co-pilota mais especial, nossa filha, ao nosso lado, celebramos o que sempre foi destino: dizer 'SIM'.</p>
       <h2>Contagem Regressiva</h2>
       <p id="countdown"></p>
-      
     </section>
 
     <section id="local">
@@ -215,52 +214,62 @@
       <button onclick="salvarMensagem()">Enviar</button>
       <div id="recados"></div>
     </section>
-    
+
     <section id="info">
       <h2>Informações Úteis</h2>
       <p>Chegue no horário para a celebração, não haverá atraso da noiva</p>
       <p>Traje Passeio Completo</p>
       <p>Haverá estacionamento no local da recepção</p>
-      </section>
+    </section>
   </main>
 
   <footer>
     <p>Com Carinho Amanda & Mauricio</p>
   </footer>
 
- <script>
-    function showSection(sectionId) {
-      document.querySelectorAll('main > section').forEach(s => s.style.display = 'none');
-      document.getElementById(sectionId).style.display = 'block';
+  <script>
+    function showSection(sectionId, button) {
+      document.querySelectorAll("main section").forEach(section => {
+        section.classList.remove("active");
+      });
+      document.getElementById(sectionId).classList.add("active");
+
+      document.querySelectorAll("nav button").forEach(btn => {
+        btn.classList.remove("active");
+      });
+      button.classList.add("active");
     }
 
     function countdown() {
       const weddingDate = new Date("June 13, 2025 19:45:00").getTime();
       const now = new Date().getTime();
       const distance = weddingDate - now;
+
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      document.getElementById("countdown").innerHTML = `${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "O casamento chegou!";
+
+      const countdownElement = document.getElementById("countdown");
+      if (distance > 0) {
+        countdownElement.innerHTML = `${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+      } else {
+        countdownElement.innerHTML = "O casamento chegou!";
       }
     }
-    const x = setInterval(countdown, 1000);
+
+    setInterval(countdown, 1000);
 
     function salvarMensagem() {
-      const texto = document.getElementById('mensagem').value;
-      if (texto.trim() !== '') {
+      const texto = document.getElementById('mensagem').value.trim();
+      if (texto !== '') {
         const recados = document.getElementById('recados');
-        const novaMensagem = document.createElement('p');
-        novaMensagem.textContent = texto;
-        recados.appendChild(novaMensagem);
+        const novoRecado = document.createElement('p');
+        novoRecado.textContent = texto;
+        recados.prepend(novoRecado);
         document.getElementById('mensagem').value = '';
       }
     }
   </script>
 </body>
-
 </html>
