@@ -1,365 +1,740 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Casamento Amanda & Mauricio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href=https://fonts.googleapis.com>
+
+  <link href=https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
- body {
-  margin: 0;
-  font-family: 'Playfair Display', serif;
-  background-color: #fffaf5;
-  color: #3d3d3d;
+
+.fas.fa-seedling {
+  color: #8c3b2e;
+  font-size: 2rem;
+  margin-right: 0.5rem;
 }
+
+body {
+
+  margin: 0;
+
+  font-family: 'Playfair Display', serif;
+
+  background-color: #fffaf5;
+
+  color: #3d3d3d;
+
+}
+
+ 
 
 header {
+
   background-color: #f4ede4;
+
   padding: 2rem;
+
   text-align: center;
+
 }
+
+ 
 
 header h1 {
+
   font-family: 'Great Vibes', cursive;
+
   font-size: 5rem;
+
   margin: 1rem 0 0.5rem;
+
   color: #8c3b2e;
+
   background-size: 40px;
+
   background-repeat: no-repeat;
+
   background-position: center bottom;
+
   padding-bottom: 2rem;
+
 }
 
-header p, header h2 {
-  font-size: 1.6rem;
-  margin: 0.4rem 0;
-  color: #4f4f4f;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 1.5rem 0;
-  flex-wrap: wrap;
-}
-
-nav button {
-  background-color: #a38f79;
-  border: none;
-  padding: 0.7rem 1.4rem;
+botao-preenchido {
+  display: inline-block;
+  background-color: #8c3b2e;
   color: white;
-  border-radius: 25px;
+  padding: 0.7rem 1.4rem;
   font-size: 1rem;
   font-family: 'Playfair Display', serif;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  border-radius: 25px;
+  text-decoration: none;
   box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: none;
 }
 
-nav button:hover, nav button.active {
-  background-color: #8c3b2e;
+botao-preenchido:hover {
+  background-color: #a38f79;
   transform: scale(1.05);
 }
+ 
+
+header p, header h2 {
+
+  font-size: 1.6rem;
+
+  margin: 0.4rem 0;
+
+  color: #4f4f4f;
+
+}
+
+ 
+
+nav {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  margin: 1.5rem 0;
+
+  flex-wrap: wrap;
+
+}
+
+ 
+
+nav button {
+
+  background-color: #a38f79;
+
+  border: none;
+
+  padding: 0.7rem 1.4rem;
+
+  color: white;
+
+  border-radius: 25px;
+
+  font-size: 1rem;
+
+  font-family: 'Playfair Display', serif;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+
+}
+
+ 
+
+nav button:hover, nav button.active {
+
+  background-color: #8c3b2e;
+
+  transform: scale(1.05);
+
+}
+
+ 
 
 section {
+
   display: none;
+
   padding: 1rem 2rem;
+
   max-width: 800px;
+
   margin: auto;
+
 }
+
+ 
 
 section.active {
+
   display: block;
+
 }
+
+ 
 
 h2 {
+
   font-weight: 700;
+
   font-size: 1.8rem;
+
   margin-bottom: 1rem;
+
 }
+
+ 
 
 h3 {
+
   font-weight: 400;
+
   font-size: 1.3rem;
+
   color: #5c5c5c;
+
 }
 
+ 
+
 ul {
-  padding-left: 1rem;
+  list-style-type: none;  /* Remove as bolinhas padrão */
+  padding-left: 0;        /* Remove o recuo à esquerda */
 }
 
 ul li {
-  margin-bottom: 1rem;
-  font-size: 1rem;
+  margin-bottom: 1rem;    /* Espaço entre os itens */
 }
 
 ul li a {
   position: relative;
-  padding-left: 28px;
+  padding-left: 25px;      /* Espaço para o coração */
   font-size: 1rem;
-  color: #7b8a61;
+  color: #7b8a61;          /* Cor dos links */
   text-decoration: none;
 }
 
 ul li a::before {
-  content: "❤️";
+  content: "🎁";          /* Símbolo do coração */
   position: absolute;
   left: 0;
   top: 0;
-  font-size: 1.1rem;
-  color: #a38f79;
+  font-size: 1.2rem;       /* Tamanho do coração */
+  color: #7b8a61;          /* Cor marrom para o coração */
 }
+
+ 
 
 a {
+
   color: #7b8a61;
+
   text-decoration: underline;
+
 }
+
+ 
 
 a:hover {
+
   color: #5f6e49;
+
 }
+
+ 
 
 input, textarea, select {
+
   width: 100%;
+
   padding: 0.6rem;
+
   margin: 0.5rem 0;
+
   border-radius: 8px;
+
   border: 1px solid #aaa;
+
   font-family: 'Playfair Display', serif;
+
 }
+
+ 
 
 footer {
+
   text-align: center;
+
   padding: 1rem;
+
   font-size: 0.9rem;
+
   background-color: #f4ede4;
+
 }
+
+ 
 
 .valores-botoes {
+
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 0.5rem;
+
   justify-content: center;
+
 }
+
+ 
 
 .valores-botoes button {
+
   background-color: #f4ede4;
+
   border: 2px solid #8c3b2e;
+
   color: #8c3b2e;
+
   font-weight: bold;
+
   padding: 0.5rem 1rem;
+
   border-radius: 20px;
+
   cursor: pointer;
+
   font-size: 1rem;
+
   transition: all 0.3s ease;
+
 }
+
+ 
 
 .valores-botoes button:hover {
+
   background-color: #8c3b2e;
+
   color: white;
+
 }
+
+ 
 
 .presente {
+
   border: 1px solid #ddd;
+
   padding: 0.8rem;
+
   border-radius: 10px;
+
   margin: 0.5rem 0;
+
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
+
   background-color: #fdfaf6;
+
   box-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+
 }
+
+ 
 
 .presente button {
+
   background-color: #8c3b2e;
+
   color: white;
+
   border: none;
+
   padding: 0.4rem 0.8rem;
+
   border-radius: 8px;
+
   font-size: 0.9rem;
+
   cursor: pointer;
+
   transition: background-color 0.3s;
+
 }
+
+ 
 
 .presente button:disabled {
+
   background-color: #ccc;
+
   cursor: not-allowed;
+
 }
+
+ 
 
 .mensagem-destaque {
+
   background-color: #fdf6f1;
+
   border-left: 5px solid #a38f79;
+
   padding: 1rem;
+
   border-radius: 8px;
+
   margin-bottom: 1rem;
+
 }
 
-@media (max-width: 600px) {
+ 
+
+@media (max-width: 500px) {
+
   header h1 {
+
     font-size: 2.7rem;
+
   }
+
+ 
 
   nav button {
+
     font-size: 0.9rem;
+
     padding: 0.6rem 1rem;
+
   }
+
+ 
 
   .valores-botoes button {
+
     font-size: 0.9rem;
+
     padding: 0.4rem 0.8rem;
+
   }
+
+ 
 
   h2 {
+
     font-size: 1.5rem;
+
   }
+
+ 
 
   h3 {
+
     font-size: 1.1rem;
+
   }
+
 }
 
+ 
+
   </style>
+
 </head>
+
 <body>
 
+ 
+
 <header>
-  <h1>Amanda & Mauricio</h1>
-  <h2><strong>Sejam bem-vindos ao nosso grande dia!</strong></h2>
-  <h2><strong>13 de junho de 2025</strong></h2>
+
+  <h1><i class="fas fa-seedling"></i> Amanda & Mauricio</h1>
+  <h3><strong>Sejam bem-vindos ao nosso grande dia!</strong></h3>
+  <h3><strong>13 de junho de 2025</strong></h3>
+
 </header>
 
+ 
+
 <nav>
+
   <button class="tab active" onclick="showSection('inicio', this)">Início</button>
+
   <button class="tab" onclick="showSection('local', this)">Local</button>
+
   <button class="tab" onclick="showSection('presentes', this)">Presentes</button>
+
   <button class="tab" onclick="showSection('rsvp', this)">Presença</button>
+
+  <button class="tab" onclick="showSection('mural', this)">Mural de Recados</button>
+
   <button class="tab" onclick="showSection('info', this)">Informações Úteis</button>
+
 </nav>
 
+ 
+
 <main>
+
   <section id="inicio" class="active">
+
     <h3 style="text-align: center;">Santo Antônio como guia e o amor como combustível,</h3>
+
     <h3 style="text-align: center;">Enfim pousamos neste momento tão esperado.</h3>
+
     <h3 style="text-align: center;">Com nossa co-pilota mais especial, nossa filha, ao nosso lado,</h3>
+
     <h3 style="text-align: center;">Celebramos o que sempre foi destino: dizer 'SIM'!</h3>
+
     <br><br><br>
+
     <h2>Contagem Regressiva</h2>
-    <p id="countdown"></p>
+
+    <h3 id="countdown"></h3>
+
   </section>
+
+ 
 
   <section id="local">
+
     <h2>Local da Cerimônia</h2>
+
     <p><strong>Data:</strong> 13 de junho de 2025</p>
+
     <p><strong>Horário:</strong> às 19h45</p>
+
     <p><strong>Local:</strong> Comunidade São Pedro e São Paulo</p>
+
     <p>Rua Benedito Barbosa de Oliveira, 20 - Jardim Bom Retiro (Nova Veneza), Sumaré - SP</p>
-   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3676.737014294091!2d-47.192888913377644!3d-22.849217282417225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8becee2b60255%3A0x63ebc035bcd8a6c6!2sComunidade%20S%C3%A3o%20Pedro%20e%20S%C3%A3o%20Paulo!5e0!3m2!1spt-BR!2sbr!4v1746818652594!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+   <iframe src=https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3676.737014294091!2d-47.192888913377644!3d-22.849217282417225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8becee2b60255%3A0x63ebc035bcd8a6c6!2sComunidade%20S%C3%A3o%20Pedro%20e%20S%C3%A3o%20Paulo!5e0!3m2!1spt-BR!2sbr!4v1746818652594!5m2!1spt-BR!2sbr width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+ 
 
     <h2>Recepção</h2>
+
     <p><strong>Recanto Santo Antônio - Pomares do Quilombo</strong></p>
+
     <p>Rua dos Pequis - Jardim Marchissolo, Sumaré - SP</p>
- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.021500472514!2d-47.2413822594435!3d-22.838694035528867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8bd2091c496df%3A0xffbdfdbe6195d6b8!2sRecanto%20Santo%20Ant%C3%B4nio!5e0!3m2!1spt-BR!2sbr!4v1746818557341!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+<iframe src=https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.021500472514!2d-47.2413822594435!3d-22.838694035528867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8bd2091c496df%3A0xffbdfdbe6195d6b8!2sRecanto%20Santo%20Ant%C3%B4nio!5e0!3m2!1spt-BR!2sbr!4v1746818557341!5m2!1spt-BR!2sbr width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
   </section>
+
 
   <section id="presentes">
+
     <div class="mensagem-destaque">
+
       <h3><strong>Queridos familiares e amigos, muito obrigado por estarem ao nosso lado nesse momento especial! Cada presente representa amor e apoio que sempre levaremos em nossos corações.</strong></h3>
+
     </div>
+
     <br>
+
     <h2>Como Presentear</h2>
+
     <h3>Cotas em dinheiro</h3>
+
     <p>Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix — com toda a praticidade, sem sair de casa e sem pagar frete.</p>
+
     <br>
+
     <div class="pix-info">
-      <p><strong>Chave Pix:</strong> 19981870068</p>
+
+      <p><strong>Chave Pix: 19981870068</strong></p>
+
       <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
+
     </div>
+
     <br>
+
     <div class="valores-botoes">
+
       <button>R$50</button>
+
       <button>R$100</button>
+
       <button>R$150</button>
+
       <button>R$250</button>
+
       <button>R$450</button>
+
       <button>R$500</button>
+
       <button>R$650</button>
+
       <button>R$800</button>
+
       <button>R$1000</button>
+
       <button>Outro valor</button>
+
     </div>
+
     <br>
+
     <h3>Ou, se preferir, escolha um presente físico para nos entregar durante a festa!</h3>
+
     <ul class="presentes-lista">
-      <li><a href="https://www.oster.com.br/liquidificador-1400-full-oster-preto/p?idsku=4873" target="_blank">Liquidificador 127v</a></li>
-      <li><a href="https://loja.electrolux.com.br/panela-eletrica-easyline-7-xicaras-13l-rcb50-electrolux/p" target="_blank">Panela Elétrica para arroz</a></li>
-      <li><a href="https://wolycasa.com.br/products/conjunto-jarra-com-6-copos-de-vidro-diamante-1l-300ml-lyor" target="_blank">Conjunto de jarra com copos</a></li>
-    <li><a href="https://a.co/d/6UiuT1p" target="_blank">Aparelho de Jantar 30 peças</a></li>
+
+      <li><a href=https://www.oster.com.br/liquidificador-1400-full-oster-preto/p?idsku=4873 target="_blank">Liquidificador 127v</a></li>
+
+      <li><a href=https://loja.electrolux.com.br/panela-eletrica-easyline-7-xicaras-13l-rcb50-electrolux/p target="_blank">Panela Elétrica para arroz</a></li>
+
+      <li><a href=https://wolycasa.com.br/products/conjunto-jarra-com-6-copos-de-vidro-diamante-1l-300ml-lyor target="_blank">Conjunto de jarra com copos</a></li>
+
+    <li><a href=https://a.co/d/6UiuT1p target="_blank">Aparelho de Jantar 30 peças</a></li>
+
   </ul>
+
 </section>
+
     </ul>
+
   </section>
+
 
   <section id="rsvp">
+
     <h2>Confirme sua Presença</h2>
+
     <p>Para confirmar sua presença, clique abaixo para preencher nosso formulário:</p>
-    <a href="https://forms.gle/n9zGDoaCXf1MByoo6" target="_blank">
-      <button>Preencher Formulário de RSVP</button>
-    </a>
+
+<nav>
+  <button onclick="window.open('https://forms.gle/n9zGDoaCXf1MByoo6', '_blank')">
+    Preencher Formulário de RSVP
+  </button>
+</nav>
+
+</section>
+<section id="mural">
+<h2>Mural de Recados</h2>
+
+<p> Estamos animados para receber seu recado, memória divertida ou aquela mensagem que vai nos fazer sorrir no futuro — vamos adorar ler cada palavra com carinho (e rir juntos também)!<p>
+
+<p>Clique abaixo para preencher nosso Mural de Recados Virtual</p>
+
+<nav>
+  <button onclick="window.open('https://forms.gle/6UwYmspqwB75fs9o7', '_blank')">
+    Preencher Mural de Recados
+  </button>
+</nav>
+ 
+ </section>
+  <section id="info">
+
+    <h3>💍 Não se atrase para a cerimônia!</h3>
+
+    <h3>💍 Traje: Esporte Fino</h3>
+
+    <h3>💍 Haverá estacionamento no local da recepção</h3>
+
   </section>
 
-  <section id="info">
-    <h3>Não se atrase para a cerimônia!</h3>
-    <h3>Traje: Esporte Fino</h3>
-    <h3>Haverá estacionamento no local da recepção</h3>
-  </section>
 </main>
 
+ 
+
 <footer>
+
   Com carinho, Amanda & Mauricio ❤️
+
 </footer>
 
+ 
+
 <script>
+
   function showSection(sectionId, button) {
+
     document.querySelectorAll("main section").forEach(section => {
+
       section.classList.remove("active");
+
     });
+
     document.getElementById(sectionId).classList.add("active");
 
+ 
+
     document.querySelectorAll("nav button").forEach(btn => {
+
       btn.classList.remove("active");
+
     });
+
     button.classList.add("active");
 
+ 
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
   }
+
+ 
 
   function countdown() {
+
     const weddingDate = new Date("June 13, 2025 19:45:00").getTime();
+
     const countdownElement = document.getElementById("countdown");
 
+ 
+
     setInterval(() => {
+
       const now = new Date().getTime();
+
       const distance = weddingDate - now;
 
+ 
+
       if (distance < 0) {
+
         countdownElement.innerHTML = "O grande dia chegou!";
+
         return;
+
       }
 
+ 
+
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+ 
+
       countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
     }, 1000);
+
   }
 
+ 
+
   countdown();
+
 </script>
 
+ 
+
 </body>
+
 </html>
