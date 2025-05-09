@@ -11,34 +11,40 @@
       margin: 0;
       padding: 0;
     }
+imagem-direita {
+      position: absolute;
+      top: 10px; /* distância do topo */
+      right: 10px; /* distância da direita */
+      width: 100px; /* tamanho opcional */
+      height: auto;}
 
     body {
       font-family: 'Quicksand', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #e6d8ad;
       background-color: #fdfcf9;
       color: #4a4a4a;
       line-height: 1.6;
     }
 
     header {
-      background-color: #a0522d,;
-      background-color: #e0b79e,;
+      background-color: #fdfcf9;
       color: #5a5a3f;
       text-align: center;
       padding: 2rem 1rem;
     }
-h1 {
+
+    h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
     }
-nav {
+
+    nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      background-color: #dcd2be;
+      background-color: #f4e1c1;
       padding: 1rem;
       gap: 0.5rem;
       position: sticky;
@@ -87,14 +93,11 @@ nav {
     }
 
     footer {
-      background-color: #e6d8ad;
-      background-color: #dcd2be;
+      background-color: #f4e1c1;
       color: #5a5a3f;
       text-align: center;
       padding: 1rem;
-    font-size: 0.9rem;
-  </header>
-
+      font-size: 0.9rem;
     }
 
     textarea {
@@ -124,13 +127,31 @@ nav {
       background-color: #8e4e41;
     }
 
-    ul {
-      padding-left: 1.2rem;
-    }
+ul {
+  list-style-type: none;  /* Remove as bolinhas padrão */
+  padding-left: 0;        /* Remove o recuo à esquerda */
+}
 
-    ul li {
-      margin: 0.4rem 0;
-    }
+ul li {
+  margin-bottom: 1rem;    /* Espaço entre os itens */
+}
+
+ul li a {
+  position: relative;
+  padding-left: 25px;      /* Espaço para o coração */
+  font-size: 1rem;
+  color: #7b8a61;          /* Cor dos links */
+  text-decoration: none;
+}
+
+ul li a::before {
+  content: "❤️";          /* Símbolo do coração */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2rem;       /* Tamanho do coração */
+  color: #7b8a61;          /* Cor marrom para o coração */
+}
 
     a {
       color: #7b8a61;
@@ -144,7 +165,7 @@ nav {
     @media (max-width: 600px) {
       h1 {
         font-size: 2rem;
-      
+      }
 
       nav {
         flex-direction: column;
@@ -173,97 +194,115 @@ nav {
 <body>
   <header>
     <h1>Amanda & Mauricio</h1>
-    <p><strong>Sejam bem-vindos ao nosso grande dia!</strong></p>
-    <p><strong>13 de junho de 2025</strong></p>
+    <h2><strong>Sejam bem-vindos ao nosso grande dia!</strong></h2>
+    <h2><strong>13 de junho de 2025</strong></h2>
   </header>
 
   <nav>
-<button onclick="showTab('inicio')">Início</button>
- <button onclick="showTab('local')">Local</button>
-  <button onclick="showTab('presentes')">Presentes</button>
-  <button onclick="showTab('rsvp')">Confirme sua presença</button>
-   <button onclick="showTab('info')">Informações Úteis</button>
+    <button class="tab active" onclick="showSection('inicio', this)">Início</button>
+    <button class="tab" onclick="showSection('local', this)">Local</button>
+    <button class="tab" onclick="showSection('presentes', this)">Presentes</button>
+    <button class="tab" onclick="showSection('rsvp', this)">Presença</button>
+    <button class="tab" onclick="showSection('info', this)">Informações Úteis</button>
   </nav>
-</header>
 
   <main>
-<section id="inicio" class="tab active">
- <h2>Sejam bem-vindos ao nosso grande dia!</h2>
-
-     <p>Santo Antônio como guia e o amor como combustível, enfim pousamos neste momento tão esperado. Com nossa co-pilota mais especial, nossa filha, ao nosso lado, celebramos o que sempre foi destino: dizer 'SIM'!<p>
     <section id="inicio" class="active">
-      <h2>Contagem Regressiva</h2>
+      <h3 style="text-align: center;">Santo Antônio como guia e o amor como combustível,</h3>
+	<h3 style="text-align: center;">enfim pousamos neste momento tão esperado.</h3>
+	<h3 style="text-align: center;"> Com nossa co-pilota mais especial, nossa filha, ao nosso lado,</h3>
+	<h3 style="text-align: center;">celebramos o que sempre foi destino: dizer 'SIM'!</h3>
+      </br>
+	</br>
+	<h2>Contagem Regressiva</h2>
       <p id="countdown"></p>
     </section>
 
     <section id="local">
       <h2>Local da Cerimônia</h2>
-      <p><strong>Comunidade São Pedro e São Paulo às 19h45</strong></p>
       <p><strong>Comunidade São Pedro e São Paulo às 19h45 -</strong></p>
       <p>Rua Benedito Barbosa de Oliveira - Jardim Bom Retiro (Nova Veneza), Sumaré - SP</p>
+	</br>
       <h2>Recepção</h2>
       <p><strong>Recanto Santo Antônio - Pomares do Quilombo</strong></p>
-     <p>Rua dos Pequis - Jardim Marchissolo, Sumaré - SP</p>
-
+      <p>Rua dos Pequis - Jardim Marchissolo, Sumaré - SP</p>
     </section>
 
-    <section id="presentes">
-      <p>Queridos familiares e amigos, muito obrigado por estarem ao nosso lado nesse momento especial! Cada presente representa amor e apoio que sempre levaremos em nossos corações.</p>
-      <h2>Como Presentear</h2>
-      <p>Cotas em dinheiro- Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix, com toda a praticidade — sem sair de casa e sem pagar frete</p>
-      <p><strong>Chave Pix:</strong> 19981870068</p>
-      <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
-<div class="cotas">
-        <button onclick="marcarPresente(this)">Outro valor</button>
-      <ul>
-        <li>R$50</li><li>R$100</li><li>R$150</li><li>R$250</li>
-        <li>R$450</li><li>R$500</li><li>R$650</li><li>R$800</li><li>R$1000</li><li>Outro valor</li>
-      </ul>
-      </div>
-<h3>Lista de Presentes</h3>
-      <h3>Mas se preferirem, temos uma lista com itens para presentear e nos entregar durante a festa</h3>
- <ul class="presentes">
-      <p><a href="https://www.oster.com.br/liquidificador-1400-full-oster-preto/p?idsku=4873" target="_blank">Liquidificador 127v</a></p>
-      <p><a href="https://loja.electrolux.com.br/panela-eletrica-easyline-7-xicaras-13l-rcb50-electrolux/p" target="_blank">Panela Elétrica para arroz</a></p>
-      <p><a href="https://wolycasa.com.br/products/conjunto-jarra-com-6-copos-de-vidro-diamante-1l-300ml-lyor" target="_blank">Conjunto de jarra com copos</a></p>
-      </ul>
 
-<section id="rsvp" class="tab">
-      <h2>Confirmação de Presença</h2><p>Para confirmar sua presença, clique abaixo para preencher nosso formulário:</p>
-      <a href="https://forms.gle/Gpg2mxeoxQGtkvnAA" target="_blank">
+<section id="presentes">
+  <div class="mensagem-destaque">
+    <h3><strong>Queridos familiares e amigos, muito obrigado por estarem ao nosso lado nesse momento especial! Cada presente representa amor e apoio que sempre levaremos em nossos corações.</strong></h3>
+  </div>
+</br>
+  <h2>Como Presentear</h2>
+  <p>Alguns dos presentes da nossa lista estão disponíveis em formato de cotas em dinheiro. Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix — com toda a praticidade, sem sair de casa e sem pagar frete.</p>
+</br>
+  <div class="pix-info">
+    <p><strong>Chave Pix: 19981870068</strong></p>
+    <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
+  </div>
+</br>
+<div class="valores-botoes">
+  <button>R$50</button>
+  <button>R$100</button>
+  <button>R$150</button>
+  <button>R$250</button>
+  <button>R$450</button>
+  <button>R$500</button>
+  <button>R$650</button>
+  <button>R$800</button>
+  <button>R$1000</button>
+  <button>Outro valor</button>
+</div>
+
+  </ul>
+</br>
+  <h3>Ou, se preferirem, escolham um presente físico para entregar durante a festa:</h3>
+
+  <ul class="lista-presentes">
+    <li><a href="https://www.oster.com.br/liquidificador-1400-full-oster-preto/p?idsku=4873" target="_blank">Liquidificador 127v</a></li>
+    <li><a href="https://loja.electrolux.com.br/panela-eletrica-easyline-7-xicaras-13l-rcb50-electrolux/p" target="_blank">Panela Elétrica para arroz</a></li>
+    <li><a href="https://wolycasa.com.br/products/conjunto-jarra-com-6-copos-de-vidro-diamante-1l-300ml-lyor" target="_blank">Conjunto de jarra com copos</a></li>
+    <li><a href="https://a.co/d/6UiuT1p" target="_blank">Aparelho de Jantar 30 peças</a></li>
+  </ul>
+</section>
+
+    <section id="rsvp">
+      <h2>Confirmação de Presença</h2>
+      <p>Para confirmar sua presença, clique abaixo para preencher nosso formulário:</p>
+      <a href="https://forms.gle/LUsPpQWXu428ZasYA" target="_blank">
         <button>Preencher Formulário de RSVP</button>
       </a>
     </section>
-  </main>
-    <section id="info">
-      <h2>Informações Úteis</h2>
-      <p>Chegue no horário para a celebração, não haverá atraso da noiva!</p>
-      <p>Traje Passeio Completo.</p>
-      <p>Haverá estacionamento no local da recepção.</p>
+
+ <section id="info">
+      <h3><strong>Não se atrase para a cerimônia!</strong></h3>
+	</br>
+	<h3><p>Traje Esporte Fino</p></h3>
+	</br>
+	<h3><p>Haverá estacionamento no local da recepção</h3>	
     </section>
+
   </main>
-<footer>
-    <p>Com carinho, Amanda & Mauricio</p>
+
+  <footer>
+    <p>Com Carinho Amanda & Mauricio</p>
   </footer>
 
   <script>
-    function showTab(tabId) {
-      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-    }
+    function showSection(sectionId, button) {
+      document.querySelectorAll("main section").forEach(section => {
+        section.classList.remove("active");
+      });
+      document.getElementById(sectionId).classList.add("active");
 
-    function marcarPresente(botao) {
-      botao.disabled = true;
-      botao.innerText = "✔️ Presente escolhido";
-      botao.classList.add("adquirido");
-    }
+      document.querySelectorAll("nav button").forEach(btn => {
+        btn.classList.remove("active");
+      });
+      button.classList.add("active");
 
-    function marcarItem(item) {
-      if (!item.classList.contains("adquirido")) {
-        item.classList.add("adquirido");
-        item.innerHTML = "✔️ " + item.innerHTML;
-      }
-    
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
     function countdown() {
       const weddingDate = new Date("June 13, 2025 19:45:00").getTime();
@@ -300,8 +339,9 @@ nav {
         recados.prepend(div);
         document.getElementById("mensagem").value = "";
       }
+    }
 
     countdown();
   </script>
 </body>
-</html
+</html>
