@@ -534,38 +534,13 @@ footer {
 
     <br>
 
-<<h2>Como Presentear</h2>
+<h2>Como Presentear</h2>
 
 <h3>Cotas em dinheiro</h3>
 
 <p>
   Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix — com toda a praticidade, sem sair de casa e sem pagar frete.
 </p>
-
-<br>
-
-<!-- QR Code -->
-<div class="pix-info">
-  <img src="https://via.placeholder.com/200" alt="QR Code Pix" class="qr-code" />
-</div>
-
-<!-- Informações Pix -->
-<div class="pix-info">
-  <p><strong>Chave Pix:</strong> <span id="pix-key">19981870068</span></p>
-  <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
-  <button class="btn-copiar" onclick="copyPixKey()">📋 Copiar chave Pix</button>
-  <p id="copy-msg" class="copy-msg">Chave copiada!</p>
-</div>
-
-<!-- Instruções -->
-<div class="pix-info">
-  <p><strong>Como fazer:</strong></p>
-  <ol class="lista-instrucoes">
-    <li>1. Abra o app do banco.</li>
-    <li>2. Escaneie o QR Code ou use a chave Pix.</li>
-    <li>3. Escolha o valor e envie com amor. ❤️</li>
-  </ol>
-</div>
 
 <br>
 
@@ -583,15 +558,25 @@ footer {
   <button onclick="mostrarOutroValor()">Outro valor</button>
 </div>
 
-<!-- Campo para outro valor -->
-<div class="pix-info outro-valor" id="outro-input">
-  <input type="number" placeholder="Digite o valor" class="campo-valor" />
+    
+<!-- Informações Pix -->
+<div class="pix-info">
+  <p><strong>Chave Pix:</strong> <span id="pix-key">19981870068</span></p>
+  <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
+  <button class="btn-copiar" onclick="copyPixKey()">Copiar chave Pix</button>
+  <p id="copy-msg" class="copy-msg">Chave copiada!</p>
+</div>
+<!-- Para outro valor-->
+<div class="pix-info">
+    <li>1. Abra o app do seu banco.</li>
+    <li>2. Copie a chave Pix acima.</li>
+    <li>3. Escolha o valor e envie com amor. ❤️</li>
+
 </div>
 
 <p id="copy-msg-valor" class="copy-msg"></p>
 
 <script>
-  // Função para gerar CRC16
   function crc16(str) {
     let crc = 0xFFFF;
     for (let i = 0; i < str.length; i++) {
@@ -616,46 +601,50 @@ footer {
     });
   }
 
-  // Função para copiar código Pix com valor específico
   function copyPixWithValue(valor) {
-    const chave = "19981870068";
-    const nome = "Amanda Evangelista Leite";
-    const cidade = "Sao Paulo";
-
-    // Formata valor com 2 casas decimais e remove o ponto
-    const valorStr = valor.toFixed(2).replace('.', '');
-    
-    // Monta payload sem CRC
-    const payloadSemCRC = 
-      "00020126360014BR.GOV.BCB.PIX" +
-      "0111" + chave +
-      "52040000" +
-      "5303986" +
-      "54" + (valorStr.length + 2) + valorStr +
-      "5802BR" +
-      "5913" + nome.substring(0, 13) +
-      "6009" + cidade.substring(0, 15) +
-      "62070503***";
-
-    // Calcula o CRC16
-    const crc = crc16(payloadSemCRC);
-    
-    // Código Pix final
-    const payloadFinal = payloadSemCRC + crc;
-
-    // Copia o código Pix para a área de transferência
-    navigator.clipboard.writeText(payloadFinal).then(() => {
-      const msg = document.getElementById("copy-msg-valor");
-      msg.textContent = `Código Pix de R$${valor} copiado! Cole no app do banco.`;
-      msg.style.display = "block";
-      setTimeout(() => msg.style.display = "none", 4000);
-    });
+    gerarCodigoPix(valor);
   }
 
   function mostrarOutroValor() {
     document.getElementById("outro-input").style.display = "block";
   }
+
+  function enviarValorPersonalizado() {
+    const valor = parseFloat(document.getElementById("valorPersonalizado").value);
+    if (!isNaN(valor) && valor > 0) {
+      gerarCodigoPix(valor);
+    }
+  }
+
+  function gerarCodigoPix(valor) {
+    const chave = "19981870068";
+    const nome = "Amanda Evangelista Leite";
+    const cidade = "Sumare"; // <- Cidade sem acento
+
+    const valorStr = valor.toFixed(2);
+    const payloadSemCRC =
+      "000201" +
+      "26360014BR.GOV.BCB.PIX0111" + chave +
+      "52040000" +
+      "5303986" +
+      "54" + valorStr.length.toString().padStart(2, '0') + valorStr +
+      "5802BR" +
+      "5913" + nome.substring(0, 13) +
+      "6006" + cidade.substring(0, 15) +
+      "62070503***";
+
+    const crc = crc16(payloadSemCRC);
+    const payloadFinal = payloadSemCRC + crc;
+
+    navigator.clipboard.writeText(payloadFinal).then(() => {
+      const msg = document.getElementById("copy-msg-valor");
+      msg.textContent = `Código Pix de R$${valorStr} copiado! Cole no app do banco.`;
+      msg.style.display = "block";
+      setTimeout(() => msg.style.display = "none", 4000);
+    });
+  }
 </script>
+
 
     </div>
 
