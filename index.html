@@ -444,7 +444,44 @@ footer {
 
 }
 
- 
+ .qr-code {
+  max-width: 200px;
+  margin: 10px auto;
+  display: block;
+}
+
+.btn-copiar {
+  padding: 6px 12px;
+  background-color: #f06292;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.copy-msg {
+  color: green;
+  margin-top: 8px;
+  display: none;
+}
+
+.lista-instrucoes {
+  list-style: none;
+  padding-left: 0;
+}
+
+.outro-valor {
+  display: none;
+  margin-top: 10px;
+}
+
+.campo-valor {
+  padding: 5px;
+  width: 150px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 
   </style>
 
@@ -536,70 +573,83 @@ footer {
 
     <h2>Como Presentear</h2>
 
-    <h3>Cotas em dinheiro</h3>
+<h3>Cotas em dinheiro</h3>
 
-    <p>Essa opção foi pensada para facilitar: assim, você pode escolher o valor que desejar e fazer a contribuição via Pix — com toda a praticidade, sem sair de casa e sem pagar frete.</p>
+<p>
+  Essa opção foi pensada para facilitar: assim, vocês podem escolher o valor que desejarem e fazer a contribuição via Pix — com toda a praticidade, sem sair de casa e sem pagar frete.
+</p>
 
-    <br>
+<br>
 
-    <div class="pix-info">
+<!-- Informações Pix -->
+<div class="pix-info">
+  <p><strong>Chave Pix:</strong> <span id="pix-key">19981870068</span></p>
+  <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
+  <button class="btn-copiar" onclick="copyPixKey()">Copiar chave Pix</button>
+  <p id="copy-msg" class="copy-msg">Chave copiada!</p>
+</div>
 
-      <p><strong>Chave Pix: 19981870068</strong></p>
+<!-- Instruções -->
+<div class="pix-info">
+  <p><strong>Como fazer:</strong></p>
+  <ol class="lista-instrucoes">
+    <li>1. Abra o app do banco.</li>
+    <li>2. Cole a chave Pix.</li>
+    <li>3. Escolha o valor e envie com amor. ❤️</li>
+  </ol>
+</div>
 
-      <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
+<br>
 
-    </div>
+<!-- Botões de valor -->
+<div class="valores-botoes">
+  <button onclick="copyPixWithValue('00020126360014BR.GOV.BCB.PIX0111199818700685204000053039865405005802BR5913Amanda Evangelista Leite6009Sao Paulo62070503***6304')">R$50</button>
+  <button onclick="copyPixWithValue('00020126360014BR.GOV.BCB.PIX0111199818700685204000053039865401005802BR5913Amanda Evangelista Leite6009Sao Paulo62070503***6304')">R$100</button>
+  <button onclick="copyPixWithValue('00020126360014BR.GOV.BCB.PIX0111199818700685204000053039865401505802BR5913Amanda Evangelista Leite6009Sao Paulo62070503***6304')">R$150</button>
+  <button onclick="copyPixWithValue('00020126360014BR.GOV.BCB.PIX0111199818700685204000053039865402505802BR5913Amanda Evangelista Leite6009Sao Paulo62070503***6304')">R$250</button>
+  <button onclick="copyPixWithValue('00020126360014BR.GOV.BCB.PIX0111199818700685204000053039865404505802BR5913Amanda Evangelista Leite6009Sao Paulo62070503***6304')">R$450</button>
+  <button onclick="copyPixWithValue('00020126360014BR.GOV.BCB.PIX0111199818700685204000053039865405005802BR5913Amanda Evangelista Leite6009Sao Paulo62070503***6304')">R$500</button>
+  <button onclick="copyPixWithValue('00020126360014BR.GOV.BCB.PIX0111199818700685204000053039865406505802BR5913Amanda Evangelista Leite6009Sao Paulo62070503***6304')">R$650</button>
+  <button onclick="copyPixWithValue('00020126360014BR.GOV.BCB.PIX0111199818700685204000053039865408005802BR5913Amanda Evangelista Leite6009Sao Paulo62070503***6304')">R$800</button>
+  <button onclick="copyPixWithValue('00020126360014BR.GOV.BCB.PIX01111998187006852040000530398654010005802BR5913Amanda Evangelista Leite6009Sao Paulo62070503***6304')">R$1000</button>
+  <button onclick="mostrarOutroValor()">Outro valor</button>
+</div>
 
-    <br>
+<p id="copy-msg-valor" class="copy-msg"></p>
 
-    <div class="valores-botoes">
+<script>
+  function copyPixKey() {
+    const pixKey = document.getElementById("pix-key").textContent;
+    navigator.clipboard.writeText(pixKey).then(() => {
+      const msg = document.getElementById("copy-msg");
+      msg.style.display = "block";
+      setTimeout(() => msg.style.display = "none", 2000);
+    });
+  }
 
-      <button>R$50</button>
+  function copyPixWithValue(payload) {
+    navigator.clipboard.writeText(payload).then(() => {
+      const msg = document.getElementById("copy-msg-valor");
+      msg.textContent = "Código Pix copiado! Cole no app do banco.";
+      msg.style.display = "block";
+      setTimeout(() => msg.style.display = "none", 4000);
+    });
 
-      <button>R$100</button>
-
-      <button>R$150</button>
-
-      <button>R$250</button>
-
-      <button>R$450</button>
-
-      <button>R$500</button>
-
-      <button>R$650</button>
-
-      <button>R$800</button>
-
-      <button>R$1000</button>
-
-      <button>Outro valor</button>
-
-    </div>
-
-    <br>
+  }
+</script>
 
     <h3>Ou, se preferir, escolha um presente físico para nos entregar durante a festa!</h3>
 
     <ul class="presentes-lista">
 
-      <li><a href=https://www.oster.com.br/liquidificador-1400-full-oster-preto/p?idsku=4873 target="_blank">Liquidificador 220V</a></li>
+      <li><a href=https://www.oster.com.br/liquidificador-1400-full-oster-preto/p?idsku=4873 target="_blank">Liquidificador 220v</a></li>
 
-      <li><a href=https://loja.electrolux.com.br/panela-eletrica-easyline-7-xicaras-13l-rcb50-electrolux/p target="_blank">Panela Elétrica para arroz 220V</a></li>
+      <li><a href=https:https://loja.electrolux.com.br/panela-eletrica-easyline-7-xicaras-13l-rcb50-electrolux/p?skuId=2001972 target="_blank">Panela Elétrica para arroz 220v</a></li>
 
       <li><a href=https://wolycasa.com.br/products/conjunto-jarra-com-6-copos-de-vidro-diamante-1l-300ml-lyor target="_blank">Conjunto de jarra com copos</a></li>
 
     <li><a href=https://a.co/d/6UiuT1p target="_blank">Aparelho de Jantar 30 peças</a></li>
-      
-    <li><a href=https://www.amazon.com.br/Black-Decker-Vaporizador-port%C3%A1til-higienizador/dp/B07DZ3MVZ2/ref=sr_1_3?adgrpid=1150089821273628&dib=eyJ2IjoiMSJ9.wjcW2zjoAHwPls8cnyPIxvLvAQgU7QsAPj5vqowEdr1RS2ldQjGfhbtyrJe2bO4BjfApak0_6Ex6io_VADza0dEc3iqew2HY9lhS4HQNfxqK5-QElvPNiegKn0n1T_WDr-pr5Q-_NREGBJAb6olO6EAWzF0GgRnNVciYvQDoV3eP1qB_iFhKM1uN_C0cLRFNvfM3BIYWz59HOprRQEs53IfbLWwMp1exxsnLWuUYoMxygXhxMBgkOEwbpIP16_ZIzCk5Prbgo3JjQ1XIcxVO6fs7_baBPZmQA8VsAhIbDCI.ituMNwuWvQnEFPOhO3tiz6VcX3-RTirduuO81pzjmfE&dib_tag=se&hvadid=71880780435472&hvbmt=bp&hvdev=c&hvlocphy=147388&hvnetw=o&hvqmt=p&hvtargid=kwd-71881130763128%3Aloc-20&hydadcr=5655_13210322&keywords=vaporizador+black+decker&mcid=7218e3e3987e36a78a07becb6fff898c&qid=1746976432&sr=8-3&ufe=app_do%3Aamzn1.fos.6121c6c4-c969-43ae-92f7-cc248fc6181d target="_blank">Vaporizador de Roupas 220V</a></li>
-      
-    <li><a href=https://www.riachuelo.com.br/produto/kit-colcha-matelada-dupla-face-boutis-mel-folhagem-off-white-casa-riachuelo-15654125_sku_sku_queen_off-white target="_blank">Kit Colcha</a></li>
-      
-    <li><a href=https://www.riachuelo.com.br/produto/jogo-de-cama-em-malha-120-fios-tulia-multicor-casa-riachuelo-15759318_sku_sku_casal_multicor Target="_blank">Jogo de Cama</a></li>
-      
-    <li><a href=https://www.riachuelo.com.br/produto/jogo-toalha-de-banho-e-de-rosto-4-pecas-alta-absorcao-marrocos-casa-riachuelo-KIT801088 target="_blank">Jogo de Toalhas</a></li>
-      
-    <li><a href=https://m.magazineluiza.com.br/jogo-de-tacas-para-vinho-cristal-450ml-6-pecas-haus-sense-bohemia/p/142270100/ud/tavi/?seller_id=magazineluiza&srsltid=AfmBOoqMsF7fOX84508AQY2NN3vJMPDRiZkyAEly9QFA0JxLsK_B-xUpIHI&gStoreCode=587 target="_blank">Jogo de Taças para Vinho Cristal</a></li>
-      
+
   </ul>
 
 </section>
@@ -634,7 +684,7 @@ footer {
  </section>
   <section id="info">
 
-    <h3>💍 Não se atrase! Nossa cerimônia acontecerá durante a Missa em homenagem a Santo Antônio</h3>
+    <h3>💍 Não se atrase para a cerimônia!</h3>
 
     <h3>💍 Traje: Esporte Fino</h3>
 
