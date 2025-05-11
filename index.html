@@ -547,8 +547,6 @@ footer {
   <p><strong>Nome:</strong> Amanda Evangelista Leite</p>
 </div>
 
-<br>
-
 <div class="valores-botoes">
   <button onclick="copiarChavePix()">R$50</button>
   <button onclick="copiarChavePix()">R$100</button>
@@ -564,7 +562,7 @@ footer {
 
 <br>
 
-<div id="mensagem" style="color: green; font-weight: bold;"></div>
+<div id="mensagem" style="color: brown; font-weight: bold;"></div>
 
 <script>
   function copiarChavePix() {
@@ -572,16 +570,15 @@ footer {
     navigator.clipboard.writeText(chave).then(() => {
       const msg = document.getElementById("mensagem");
       msg.innerText = "Chave Pix copiada com sucesso!";
-      msg.style.color = "green";
+      msg.style.color = "brown";
       setTimeout(() => msg.innerText = "", 3000);
     }).catch(() => {
       const msg = document.getElementById("mensagem");
       msg.innerText = "Erro ao copiar a chave Pix.";
-      msg.style.color = "red";
+      msg.style.color = "dark red";
     });
   }
 </script>
-
 
     <h3>Ou, se preferir, escolha um presente físico para nos entregar durante a festa!</h3>
 
